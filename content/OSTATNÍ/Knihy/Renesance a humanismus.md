@@ -20,6 +20,7 @@
 	- peklo, očistec, ráj
 	- dobové problémy politické
 	- pouť duše, těla i lidstva ke spáse a bohu
+	- děj začíná v temném lese, Beatrice posílá zachránce Vergilia (rozum). Provází ho peklem (pater) očistcem (ostrov) a před rájem se ho ujme Beatrice, je očištěn od hříchu v řece a setkává se s Bohem - do ráje jako pohan nesmí.
 ## Petrarca
 - Florencie
 - Vyhnanství v Avignonu
