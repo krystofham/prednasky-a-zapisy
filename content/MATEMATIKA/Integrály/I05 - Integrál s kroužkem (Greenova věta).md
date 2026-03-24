@@ -1,4 +1,6 @@
 #integraly , #greenova-veta , #stokesova-veta
+# Nutnost
+
 # 5. Integrál s kroužkem – Greenova a Stokesova věta
 
 ## Co je ten kroužek?
