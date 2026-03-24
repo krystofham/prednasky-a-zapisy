@@ -1979,14 +1979,12 @@ Doporučené certifikace pro legální WiFi pentest:
 ---
 
 > **📚 Další vzdělávání:**
-> 
 > - Offensive Security OSWP (WiFu) kurz
 > - TryHackMe — WiFi Hacking path
 > - HackTheBox — Wireless challenges
 > - Kniha: "Hacking Exposed Wireless" — Johnny Cache
 
-> **🔧 Cvičná prostředí:**
-> 
+> **🔧 Cvičná prostředí:**> 
 > - Vlastní testovací AP doma
 > - WiFi Pineapple (Hak5) — hardware pro WiFi audity
 > - Virtuální lab s softAP v Kali
