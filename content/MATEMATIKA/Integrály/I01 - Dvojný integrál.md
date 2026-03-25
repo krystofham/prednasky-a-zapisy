@@ -1,5 +1,6 @@
 #integraly, #dvojny
 # 1. Dvojný integrál
+![[double int.png]]
 
 ## Intuice
 

@@ -1,5 +1,6 @@
 #integraly 
 #trojny
+![[Pasted image 20260325154301.png]]
 # 2. Trojný integrál
 
 ## Intuice
