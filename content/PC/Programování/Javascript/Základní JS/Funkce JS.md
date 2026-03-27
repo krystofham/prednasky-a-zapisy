@@ -1,4 +1,5 @@
 ---
+slug: Funkce-JS
 permalink: Funkce-JS
 ---
 # Funkce

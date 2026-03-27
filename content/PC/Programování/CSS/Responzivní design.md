@@ -1,3 +1,7 @@
+---
+slug: Responzivní-design
+---
+
 ## 1. Klasika: Media Queries (`@media`)
 
 Media queries jsou "přepínače". Říkají prohlížeči: „Pokud je displej užší než 768px, změň barvu pozadí.“ Je to základní nástroj pro měnění rozvržení (layoutu).

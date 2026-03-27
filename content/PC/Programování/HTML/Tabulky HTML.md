@@ -1,4 +1,5 @@
 ---
+slug: Tabulky-HTML
 permalink: Tabulky-HTML
 ---
 ```html

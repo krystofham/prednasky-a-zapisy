@@ -1,4 +1,5 @@
 ---
+slug: Proměnné-a-typy-JS
 permalink: Proměnné-a-typy-JS
 ---
 # Proměnné

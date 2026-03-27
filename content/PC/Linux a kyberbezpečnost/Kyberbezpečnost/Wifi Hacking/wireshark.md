@@ -1,4 +1,5 @@
 ---
+slug: wireshark
 permalink: wireshark
 ---
 # 🦈 Wireshark Starterpack

@@ -1,4 +1,5 @@
 ---
+slug: Monte-Carlo-metody-a-generátory-(pseudo)náhodných-čísel
 permalink: Monte-Carlo-metody-a-generátory-(pseudo)náhodných-čísel
 ---
 **Autor**: L. Kapera

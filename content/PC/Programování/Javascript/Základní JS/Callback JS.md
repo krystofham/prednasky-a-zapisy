@@ -1,4 +1,5 @@
 ---
+slug: Callback-JS
 permalink: Callback-JS
 ---
 Nutnost

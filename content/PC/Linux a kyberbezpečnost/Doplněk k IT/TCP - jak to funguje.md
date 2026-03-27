@@ -1,4 +1,5 @@
 ---
+slug: TCP---jak-to-funguje
 permalink: TCP---jak-to-funguje
 ---
 https://www.youtube.com/watch?v=rmFX1V49K8U

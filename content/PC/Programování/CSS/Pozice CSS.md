@@ -1,4 +1,5 @@
 ---
+slug: Pozice-CSS
 permalink: Pozice-CSS
 ---
 # Static

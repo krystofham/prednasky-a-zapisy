@@ -1,3 +1,7 @@
+---
+slug: Vim---basic-cmd
+---
+
 # 🧠 Vim – Crash Course pro začátečníky
 
 > **Vim** je terminálový textový editor, který je na první pohled matoucí, ale po zvládnutí základů extrémně rychlý a efektivní.

@@ -1,4 +1,5 @@
 ---
+slug: 5-CSS-tips
 permalink: 5-CSS-tips
 ---
 # 1. relative padding

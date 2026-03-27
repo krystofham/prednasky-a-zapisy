@@ -1,4 +1,5 @@
 ---
+slug: -Dynamické-hmotného-bodu-intro
 permalink: -Dynamické-hmotného-bodu-intro
 ---
 # Počátek

@@ -1,3 +1,7 @@
+---
+slug: Burp-Suite
+---
+
 GOOGLE GEMINI
 Burp Suite je komplexní platforma pro testování zabezpečení webových aplikací. Funguje jako „Man-in-the-Middle“ mezi tvým prohlížečem a cílovým serverem.
 ## Klíčové moduly (Základna útoku)

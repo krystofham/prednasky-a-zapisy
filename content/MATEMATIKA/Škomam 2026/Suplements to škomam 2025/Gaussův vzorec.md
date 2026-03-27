@@ -1,4 +1,5 @@
 ---
+slug: Gaussův-vzorec
 permalink: Gaussův-vzorec
 ---
 # Tags

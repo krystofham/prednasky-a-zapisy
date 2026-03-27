@@ -1,3 +1,7 @@
+---
+slug: Hacking-webu-rychlá-stopa-bez-log
+---
+
 [[Hacking webu Rychlá stopa]]
 Celý článek
 # Poznámky před testem

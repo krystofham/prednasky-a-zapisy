@@ -1,4 +1,5 @@
 ---
+slug: -Diferenciální-rovnice---intro
 permalink: -Diferenciální-rovnice---intro
 ---
 ---

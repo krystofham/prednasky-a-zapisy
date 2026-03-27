@@ -1,4 +1,5 @@
 ---
+slug: Infinitive-carousel-CSS
 permalink: Infinitive-carousel-CSS
 ---
 ```html

@@ -1,4 +1,5 @@
 ---
+slug: Media-elementy-HTML
 permalink: Media-elementy-HTML
 ---
 # Picture

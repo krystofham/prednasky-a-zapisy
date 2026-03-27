@@ -1,3 +1,7 @@
+---
+slug: Custom-properties
+---
+
 # CSS Custom Properties (Proměnné)
 
 CSS proměnné (oficiálně **Custom Properties**) umožňují ukládat hodnoty na jednom místě a opakovaně je používat napříč celým stylem.

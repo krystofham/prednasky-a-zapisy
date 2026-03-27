@@ -1,4 +1,5 @@
 ---
+slug: Pole-a-metody-JS
 permalink: Pole-a-metody-JS
 ---
 Nutnost: [[Callback JS]]

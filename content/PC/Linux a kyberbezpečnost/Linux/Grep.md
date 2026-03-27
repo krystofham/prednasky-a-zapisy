@@ -1,4 +1,5 @@
 ---
+slug: Grep
 permalink: Grep
 ---
 Command do terminálu v Linuxu.

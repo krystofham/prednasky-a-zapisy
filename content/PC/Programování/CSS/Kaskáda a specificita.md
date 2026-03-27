@@ -1,3 +1,7 @@
+---
+slug: Kaskáda-a-specificita
+---
+
 ## 1. Dědičnost (Inheritance)
 
 Některé vlastnosti se automaticky přenášejí z rodiče na potomka. Je to efektivní – nemusíš nastavovat font každému odstavci zvlášť.

@@ -1,4 +1,5 @@
 ---
+slug: Souhlásky-—-ch,-sch,-st,-sp,-ß-NJ
 permalink: Souhlásky-—-ch,-sch,-st,-sp,-ß-NJ
 ---
 # 🇩🇪 Němčina od nuly | Téma: Souhlásky — ch, sch, st, sp, ß

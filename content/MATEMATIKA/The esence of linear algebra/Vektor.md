@@ -1,3 +1,7 @@
+---
+slug: Vektor
+---
+
 **Vektor je**
 1) Šipka v prostoru co má směr a délku v prostoru (physics)
 2) List (CS student) $$\big[\frac {-2}3\big]$$

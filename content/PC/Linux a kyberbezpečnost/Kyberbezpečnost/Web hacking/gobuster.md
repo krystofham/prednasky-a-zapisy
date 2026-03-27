@@ -1,4 +1,5 @@
 ---
+slug: gobuster
 permalink: gobuster
 ---
 

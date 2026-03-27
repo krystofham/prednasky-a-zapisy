@@ -1,4 +1,5 @@
 ---
+slug: Animace-CSS
 permalink: Animace-CSS
 ---
 # Definice

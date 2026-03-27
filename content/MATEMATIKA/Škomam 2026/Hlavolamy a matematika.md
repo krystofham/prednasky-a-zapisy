@@ -1,4 +1,5 @@
 ---
+slug: Hlavolamy-a-matematika
 permalink: Hlavolamy-a-matematika
 ---
 Autor: P. Kovář

@@ -1,4 +1,5 @@
 ---
+slug: Čas-template
 permalink: Čas-template
 ---
 # [NÁZEV ČASU] — [JAZYK]

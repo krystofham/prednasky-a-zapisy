@@ -1,4 +1,5 @@
 ---
+slug: Taylor-series
 permalink: Taylor-series
 ---
 #derivace

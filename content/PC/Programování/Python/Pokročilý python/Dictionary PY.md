@@ -1,4 +1,5 @@
 ---
+slug: Dictionary-PY
 permalink: Dictionary-PY
 ---
 # Printing

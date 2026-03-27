@@ -1,4 +1,5 @@
 ---
+slug: 08-picardova-věta-o-existenci
 permalink: 08-picardova-věta-o-existenci
 ---
 ---

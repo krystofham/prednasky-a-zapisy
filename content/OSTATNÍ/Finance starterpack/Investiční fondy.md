@@ -1,4 +1,5 @@
 ---
+slug: Investiční-fondy
 permalink: Investiční-fondy
 ---
 # Diverzifikace akcií - FONDY

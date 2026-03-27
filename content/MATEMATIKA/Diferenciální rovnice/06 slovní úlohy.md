@@ -1,4 +1,5 @@
 ---
+slug: 06-slovní-úlohy
 permalink: 06-slovní-úlohy
 ---
 

@@ -1,4 +1,5 @@
 ---
+slug: this-JS
 permalink: this-JS
 ---
 Autor: Brocode

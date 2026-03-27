@@ -1,3 +1,7 @@
+---
+slug: OWASP-ZAP
+---
+
 GOOGLE GEMINI
 # OWASP ZAP: Kompletní průvodce a dokumentace
 

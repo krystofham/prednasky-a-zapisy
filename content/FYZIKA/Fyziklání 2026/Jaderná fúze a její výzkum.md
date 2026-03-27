@@ -1,4 +1,5 @@
 ---
+slug: Jaderná-fúze-a-její-výzkum
 permalink: Jaderná-fúze-a-její-výzkum
 ---
 Autor: A. Podolník (feat. O. Ficker, M. Tomeš)

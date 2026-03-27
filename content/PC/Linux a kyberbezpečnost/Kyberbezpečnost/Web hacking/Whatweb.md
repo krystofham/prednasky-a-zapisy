@@ -1,3 +1,7 @@
+---
+slug: Whatweb
+---
+
 ```bash
 whatweb [options] URL
 ```

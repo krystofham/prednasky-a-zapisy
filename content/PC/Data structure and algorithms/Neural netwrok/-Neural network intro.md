@@ -1,4 +1,5 @@
 ---
+slug: -Neural-network-intro
 permalink: -Neural-network-intro
 ---
 # Počátek

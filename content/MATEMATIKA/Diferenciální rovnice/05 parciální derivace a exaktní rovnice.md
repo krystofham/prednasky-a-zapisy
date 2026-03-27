@@ -1,4 +1,5 @@
 ---
+slug: 05-parciální-derivace-a-exaktní-rovnice
 permalink: 05-parciální-derivace-a-exaktní-rovnice
 ---
 ---

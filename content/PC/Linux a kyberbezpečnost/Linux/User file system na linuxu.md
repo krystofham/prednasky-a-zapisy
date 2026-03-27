@@ -1,4 +1,5 @@
 ---
+slug: User-file-system-na-linuxu
 permalink: User-file-system-na-linuxu
 ---
 # Root

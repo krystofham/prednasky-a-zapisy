@@ -1,4 +1,5 @@
 ---
+slug: Nmap
 permalink: Nmap
 ---
 # Background

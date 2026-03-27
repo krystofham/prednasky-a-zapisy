@@ -1,4 +1,5 @@
 ---
+slug: -Finance-intro
 permalink: -Finance-intro
 ---
 # Počátek

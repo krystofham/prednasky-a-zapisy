@@ -1,4 +1,5 @@
 ---
+slug: 04-pokročilé-diferenciální-rovnice
 permalink: 04-pokročilé-diferenciální-rovnice
 ---
 ---

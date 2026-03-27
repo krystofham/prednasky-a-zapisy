@@ -1,4 +1,5 @@
 ---
+slug: I02---Trojný-integrál
 permalink: I02---Trojný-integrál
 ---
 

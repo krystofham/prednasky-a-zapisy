@@ -1,4 +1,5 @@
 ---
+slug: 03-Viskozita-a-laminární-proudění
 permalink: 03-Viskozita-a-laminární-proudění
 ---
 Reálné kapaliny a plyny mají **viskozitu** – vnitřní tření, které brzdí proudění. Tato sekce popisuje chování viskózních tekutin při klidném (laminárním) proudění.

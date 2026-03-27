@@ -1,4 +1,5 @@
 ---
+slug: Investiční-příležitosti-ve-světě
 permalink: Investiční-příležitosti-ve-světě
 ---
 # Trojúhelník

@@ -1,4 +1,5 @@
 ---
+slug: DOM-JS
 permalink: DOM-JS
 ---
 DOM = Document Object Model

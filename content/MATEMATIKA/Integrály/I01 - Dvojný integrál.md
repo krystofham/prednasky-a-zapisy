@@ -1,3 +1,7 @@
+---
+slug: I01---Dvojný-integrál
+---
+
 #integraly, #dvojny
 # 1. Dvojný integrál
 ![[double int.png]]

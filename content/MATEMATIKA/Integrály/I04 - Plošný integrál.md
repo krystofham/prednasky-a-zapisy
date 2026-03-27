@@ -1,4 +1,5 @@
 ---
+slug: I04---Plošný-integrál
 permalink: I04---Plošný-integrál
 ---
 

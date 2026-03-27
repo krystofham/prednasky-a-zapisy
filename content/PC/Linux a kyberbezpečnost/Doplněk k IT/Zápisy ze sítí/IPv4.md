@@ -1,4 +1,5 @@
 ---
+slug: IPv4
 permalink: IPv4
 ---
 32 bitový systém  

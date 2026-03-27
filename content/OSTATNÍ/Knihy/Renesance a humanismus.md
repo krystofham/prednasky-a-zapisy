@@ -1,4 +1,5 @@
 ---
+slug: Renesance-a-humanismus
 permalink: Renesance-a-humanismus
 ---
 # Renesance

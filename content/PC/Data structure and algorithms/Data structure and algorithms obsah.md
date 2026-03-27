@@ -1,4 +1,5 @@
 ---
+slug: Data-structure-and-algorithms-obsah
 permalink: Data-structure-and-algorithms-obsah
 ---
 Data structure and algorithms = DSA

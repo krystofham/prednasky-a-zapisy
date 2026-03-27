@@ -1,4 +1,5 @@
 ---
+slug: Bayesova-věta
 permalink: Bayesova-věta
 ---
 Autor: Jan Kracík

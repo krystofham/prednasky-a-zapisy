@@ -1,4 +1,5 @@
 ---
+slug: Stopařův-průvodce-exoplanetami
 permalink: Stopařův-průvodce-exoplanetami
 ---
 Autor: Daniel Dupkala

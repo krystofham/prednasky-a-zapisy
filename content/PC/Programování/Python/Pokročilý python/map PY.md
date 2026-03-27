@@ -1,4 +1,5 @@
 ---
+slug: map-PY
 permalink: map-PY
 ---
 Autor: brocode

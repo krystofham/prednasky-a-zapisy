@@ -1,4 +1,5 @@
 ---
+slug: SVG-HTML
 permalink: SVG-HTML
 ---
 scalable image format

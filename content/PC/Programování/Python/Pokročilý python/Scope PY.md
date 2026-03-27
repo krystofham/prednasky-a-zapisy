@@ -1,4 +1,5 @@
 ---
+slug: Scope-PY
 permalink: Scope-PY
 ---
 Autor: b001

@@ -1,4 +1,5 @@
 ---
+slug: Pseudo-elementy-CSS
 permalink: Pseudo-elementy-CSS
 ---
 # Content

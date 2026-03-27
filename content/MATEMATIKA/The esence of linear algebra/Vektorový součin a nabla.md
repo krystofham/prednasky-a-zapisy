@@ -1,3 +1,7 @@
+---
+slug: Vektorový-součin-a-nabla
+---
+
 # Vektorový součin a nabla — kompletní průvodce
 
 ---

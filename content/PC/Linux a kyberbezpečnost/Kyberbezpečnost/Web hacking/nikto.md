@@ -1,4 +1,5 @@
 ---
+slug: nikto
 permalink: nikto
 ---
 

@@ -1,3 +1,7 @@
+---
+slug: Transformace
+---
+
 ## 1. `translate(x, y)` – Posunutí
 
 Posune element z jeho původní pozice. Klíčové je, že procenta se počítají z **velikosti samotného elementu**, ne z rodiče (toho se využívá u centrování).

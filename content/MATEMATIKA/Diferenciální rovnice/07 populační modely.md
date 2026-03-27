@@ -1,4 +1,5 @@
 ---
+slug: 07-populační-modely
 permalink: 07-populační-modely
 ---
 ---

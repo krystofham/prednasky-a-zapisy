@@ -1,4 +1,5 @@
 ---
+slug: Německá-abeceda-a-výslovnost-NJ
 permalink: Německá-abeceda-a-výslovnost-NJ
 ---
 # 🇩🇪 Němčina od nuly | Téma: Německá abeceda a výslovnost

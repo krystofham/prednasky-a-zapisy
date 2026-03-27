@@ -1,4 +1,5 @@
 ---
+slug: Meta-tagy-HTML
 permalink: Meta-tagy-HTML
 ---
 # pro SEO

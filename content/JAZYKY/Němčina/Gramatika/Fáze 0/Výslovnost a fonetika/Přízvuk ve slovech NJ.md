@@ -1,4 +1,5 @@
 ---
+slug: Přízvuk-ve-slovech-NJ
 permalink: Přízvuk-ve-slovech-NJ
 ---
 # 🇩🇪 Němčina od nuly | Téma: Přízvuk ve slovech

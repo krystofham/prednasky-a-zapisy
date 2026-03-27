@@ -1,4 +1,5 @@
 ---
+slug: Tables-CSS
 permalink: Tables-CSS
 ---
 

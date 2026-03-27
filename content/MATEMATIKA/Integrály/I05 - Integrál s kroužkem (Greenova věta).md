@@ -1,4 +1,5 @@
 ---
+slug: I05---Integrál-s-kroužkem-(Greenova-věta)
 permalink: I05---Integrál-s-kroužkem-(Greenova-věta)
 ---
 

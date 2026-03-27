@@ -1,4 +1,5 @@
 ---
+slug: cat
 permalink: cat
 ---
 # Vypsat content souborů

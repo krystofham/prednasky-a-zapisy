@@ -1,4 +1,5 @@
 ---
+slug: Podmínky-a-smyčky-JS
 permalink: Podmínky-a-smyčky-JS
 ---
 # Podmínky a loopy

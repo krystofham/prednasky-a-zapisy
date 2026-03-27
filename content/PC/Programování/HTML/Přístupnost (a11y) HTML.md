@@ -1,4 +1,5 @@
 ---
+slug: Přístupnost-(a11y)-HTML
 permalink: Přístupnost-(a11y)-HTML
 ---
 # Alt

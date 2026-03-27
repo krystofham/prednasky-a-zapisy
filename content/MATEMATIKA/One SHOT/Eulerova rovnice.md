@@ -1,4 +1,5 @@
 ---
+slug: Eulerova-rovnice
 permalink: Eulerova-rovnice
 ---
 Src:https://www.youtube.com/watch?v=co7gJJHf6IQ
