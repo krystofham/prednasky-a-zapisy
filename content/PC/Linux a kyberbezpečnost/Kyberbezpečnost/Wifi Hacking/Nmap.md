@@ -1,6 +1,5 @@
 ---
 ---
-https://www.youtube.com/watch?v=F2PXe_o7KqM
 # Background
 
 - Rychle skenovat velké sítě
