@@ -1,3 +1,4 @@
+[[Hacking webu rychlá stopa bez log]]
 # Poznámky před testem
 > Nedávno jsem refactoroval starý projekt. Web pro časopis Rychlá stopa. Tento projekt byl mnou přeprogramován, ale jak je vlastně bezpečný?
 > V aplikaci byl adminova sekce a veřejné api, spolu s články.
@@ -14,6 +15,7 @@ Více o nmap: [[Nmap]]. Penetrační test začal s nmapem, který odhalil docela
 |_http-server-header: Werkzeug/3.1.7 Python/3.14.2
 |_http-title: Rychl\xC3\xA1 stopa \xE2\x80\x94 F1 magaz\xC3\xADn
 ```
+
 # Whatweb
 Více o whatweb: [[Whatweb]]. Whatweb byl mnohem lepší než nmap. Zjistil jsem více. Ale hlavně přehledněji. Je to mnohem komplexnější.
 
