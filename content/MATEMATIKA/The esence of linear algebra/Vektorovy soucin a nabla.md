@@ -1,5 +1,5 @@
 ---
-slug: Vektorový-součin-a-nabla
+slug: Vektorovy-soucin-a-nabla
 ---
 
 # Vektorový součin a nabla — kompletní průvodce

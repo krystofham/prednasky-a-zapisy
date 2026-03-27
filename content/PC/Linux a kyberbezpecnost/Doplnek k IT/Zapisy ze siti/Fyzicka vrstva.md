@@ -1,5 +1,5 @@
 ---
-slug: Fyzická-vrstva
+slug: Fyzicka-vrstva
 permalink: Fyzická-vrstva
 ---
 

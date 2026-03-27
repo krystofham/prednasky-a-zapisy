@@ -1,5 +1,5 @@
 ---
-slug: Jak-rychle-rostou-faktoriály-a-proč-je-dobré-to-vědět?
+slug: Jak-rychle-rostou-faktorialy-a-proc-je-dobre-to-vedet?
 permalink: Jak-rychle-rostou-faktoriály-a-proč-je-dobré-to-vědět?
 ---
 **Autor**: P. Vodstrčil.

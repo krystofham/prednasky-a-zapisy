@@ -1,5 +1,5 @@
 ---
-slug: Prompt-na-písně
+slug: Prompt-na-pisne
 permalink: Prompt-na-písně
 ---
 Působíš jako zkušený lektor cizích jazyků. Analyzuj text písně, kterou ti pošlu níže, se zaměřením na studenta na úrovni **A1 až A2**.

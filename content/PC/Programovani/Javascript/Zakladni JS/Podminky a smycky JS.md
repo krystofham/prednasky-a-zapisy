@@ -1,5 +1,5 @@
 ---
-slug: Podmínky-a-smyčky-JS
+slug: Podminky-a-smycky-JS
 permalink: Podmínky-a-smyčky-JS
 ---
 # Podmínky a loopy

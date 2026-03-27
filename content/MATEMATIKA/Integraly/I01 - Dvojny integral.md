@@ -1,5 +1,5 @@
 ---
-slug: I01---Dvojný-integrál
+slug: I01---Dvojny-integral
 ---
 
 #integraly, #dvojny
@@ -44,14 +44,14 @@ $$\int_a^b \int_c^d f,dy,dx = \int_c^d \int_a^b f,dx,dy$$
 > ⚠️ Záměna pořadí může změnit meze! Pozor u složitějších oblastí $D$.
 
 ## Polární souřadnice
-[[IO1.1 Polární souřadnice]]
+[[IO1.1 Polarni souradnice]]
 Pokud oblast $D$ je kruh nebo část kruhu, vyplatí se přejít na polární souřadnice:
 
 $$x = r\cos\theta, \quad y = r\sin\theta$$
 
 $$\iint_D f(x,y),dA = \int_{\theta_1}^{\theta_2}\int_{r_1}^{r_2} f(r\cos\theta,, r\sin\theta)\cdot r,dr,d\theta$$
 
-> ⚠️ Nesmíš zapomenout na **Jakobián** $r$ — viz [[I02 - Trojný integrál]].
+> ⚠️ Nesmíš zapomenout na **Jakobián** $r$ — viz [[I02 - Trojny integral]].
 
 # Slovní úloha: Zahradní jezírko
 

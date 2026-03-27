@@ -12,8 +12,8 @@ Autor: Jiří Branžovský
 - portfolia na míru
 # Obsah
 
-[[Investiční fondy]]
-[[Investiční příležitosti ve světě]]
+[[Investicni fondy]]
+[[Investicni prilezitosti ve svete]]
 [[Akcie 1, 2, 3, 4]]
 # Zdroje
 

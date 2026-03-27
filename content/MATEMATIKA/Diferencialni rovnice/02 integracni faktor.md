@@ -1,5 +1,5 @@
 ---
-slug: 02-integrační-faktor
+slug: 02-integracni-faktor
 permalink: 02-integrační-faktor
 ---
 ---

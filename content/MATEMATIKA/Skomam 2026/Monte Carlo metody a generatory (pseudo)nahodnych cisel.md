@@ -1,5 +1,5 @@
 ---
-slug: Monte-Carlo-metody-a-generátory-(pseudo)náhodných-čísel
+slug: Monte-Carlo-metody-a-generatory-(pseudo)nahodnych-cisel
 permalink: Monte-Carlo-metody-a-generátory-(pseudo)náhodných-čísel
 ---
 **Autor**: L. Kapera
@@ -24,7 +24,7 @@ $\omega = \sqrt o \approx \sqrt{0,04395833333} \approx 0,2096624271$
 
 ---
 
-**[[Fresnelovy integrály]]** - dálnice, horské dráhy - *eulerova spirála*
+**[[Fresnelovy integraly]]** - dálnice, horské dráhy - *eulerova spirála*
 **Výpočet ceny opce** (právo něco koupit a něco prodat v nějaký čas za nějakou cenu)
 # Opce
 
@@ -64,7 +64,7 @@ $z = r\pm \sigma$ - historický výnos
 z lze mít taky jako *náhodný šok*
 $$S_r = S_0*e^{(r-\frac12\sigma^2)*T+{\sigma\sqrt{T}*z}}$$*Brownův model (více <a href="https://en.wikipedia.org/wiki/Brownian_model_of_financial_markets">zde - NA VLASTNÍ NEBEZPEČÍ</a> )*
 *Black-Scholes model (<a href="https://en.wikipedia.org/wiki/Black%E2%80%93Scholes_model">zde</a>)*
-Používá Gaussovu distribuci ([[Gaussův vzorec]]) 
+Používá Gaussovu distribuci ([[Gaussuv vzorec]]) 
 Viz Monte Carlo na moji Fedoře
 
 ```

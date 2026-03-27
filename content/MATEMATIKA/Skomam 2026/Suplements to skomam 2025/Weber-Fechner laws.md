@@ -8,7 +8,7 @@ Weber přišel na to, že pokud máme dvě závaží – například 100 gramů 
 # Zrak
 Pokud ve tmavé místnosti někdo rozsvítí světlo, lze to hned poznat. Pokud ale za jasného dne, kdy je celý pokoj prosvícený někdo rozsvítí světlo, už to nebude tak jednoduché.
 # Zvuk
-Vztah frekvence k lidskému vnímání je přesně logaritmický jakožto _oktáva_ = _log2(fn/fn-1)_ (více v [[Matematický pohled na hudební teorii]]), kdy _n_ značí celočíselné násobky frekvence. Prakticky řečeno rozdíl _Δf_ mezi stejně označenými tóny (např. _tón_ _A_) v "basovém" spektru je pár Hz, kdežto ve vyšším spektru řádově tisíce Hz. Pokud bychom chtěli použít přirozený logaritmus _ln_(_fn/fn-1_), je nutné jej vynásobit konstantou _k = 1,4427_.
+Vztah frekvence k lidskému vnímání je přesně logaritmický jakožto _oktáva_ = _log2(fn/fn-1)_ (více v [[Matematicky pohled na hudebni teorii]]), kdy _n_ značí celočíselné násobky frekvence. Prakticky řečeno rozdíl _Δf_ mezi stejně označenými tóny (např. _tón_ _A_) v "basovém" spektru je pár Hz, kdežto ve vyšším spektru řádově tisíce Hz. Pokud bychom chtěli použít přirozený logaritmus _ln_(_fn/fn-1_), je nutné jej vynásobit konstantou _k = 1,4427_.
 # Nalezení peněz
 Pokud bezdomovec najde korunu, bude z toho mít radost a bude pro něj mít velký význam. Když ale bohatý člověk najde na zemi korunu, nemusí ji ani zvednout, protože to pro něj je tak malý obnos peněz, že mu na něm nemusí záležet
 # Stárnutí

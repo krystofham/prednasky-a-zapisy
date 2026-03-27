@@ -1,5 +1,5 @@
 ---
-slug: Výhody
+slug: Vyhody
 ---
 # Obecně
 - nepřerušuje hru

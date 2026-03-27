@@ -1,5 +1,5 @@
 ---
-slug: -Diferenciální-rovnice---intro
+slug: -Diferencialni-rovnice---intro
 permalink: -Diferenciální-rovnice---intro
 ---
 ---
@@ -20,14 +20,14 @@ tags:
 
 | #   | Téma                                        | Stav          |
 | --- | ------------------------------------------- | ------------- |
-| 1   | [[01 diferenciální rovnice – úvod]]         | ✅             |
-| 1.1 | [[02 integrační faktor]]                    | ✅             |
-| 1.2 | [[03 separace proměnných]]                  | ✅             |
-| 2   | [[04 pokročilé diferenciální rovnice]]      | ✅             |
-| 3   | [[05 parciální derivace a exaktní rovnice]] | ✅             |
-| 4   | [[06 slovní úlohy]]                         | 📝 poznámky   |
-| 5   | [[07 populační modely]]                     | ✅             |
-| 6   | [[08 picardova věta o existenci]]           | 🔜 do 2027/28 |
+| 1   | [[01 diferencialni rovnice – uvod]]         | ✅             |
+| 1.1 | [[02 integracni faktor]]                    | ✅             |
+| 1.2 | [[03 separace promennych]]                  | ✅             |
+| 2   | [[04 pokrocile diferencialni rovnice]]      | ✅             |
+| 3   | [[05 parcialni derivace a exaktni rovnice]] | ✅             |
+| 4   | [[06 slovni ulohy]]                         | 📝 poznámky   |
+| 5   | [[07 populacni modely]]                     | ✅             |
+| 6   | [[08 picardova veta o existenci]]           | 🔜 do 2027/28 |
 
 ## Zdroje
 

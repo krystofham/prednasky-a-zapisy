@@ -1,5 +1,5 @@
 ---
-slug: Jaderná-fúze-a-její-výzkum
+slug: Jaderna-fuze-a-jeji-vyzkum
 permalink: Jaderná-fúze-a-její-výzkum
 ---
 Autor: A. Podolník (feat. O. Ficker, M. Tomeš)
@@ -38,7 +38,7 @@ $$F_c = \frac 1{4\pi \epsilon_0}\frac{|Q_1Q_2|}{r^2}$$
 # Jak dojde k fúzi
 
 Teplota = rychlost
-[[Maxwell-Boltzmann rozdělení]]
+[[Maxwell-Boltzmann rozdeleni]]
 Účinný průřez
 - Rychlejší částice se dostanou blíže k vrcholu potenciálové bariéry
 - Jak moc blízko se musí dostat?
@@ -49,7 +49,7 @@ Teplota = rychlost
 - kvalita reaktoru $\tau_E$ 
 Počet reakcí za jednotku času = reaktivita $r = \frac{n^2}4$
 - Deuterium (běžný) a tritium (20kg na celé zemi)
-- Minimum [[trojný součin]]
+- Minimum [[trojny soucin]]
 - $174 \cdot 10^6 K$
 - Plazmatický plyn
 # Magnetické udržení plazmatu

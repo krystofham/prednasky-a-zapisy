@@ -1,5 +1,5 @@
 ---
-slug: I05---Integrál-s-kroužkem-(Greenova-věta)
+slug: I05---Integral-s-krouzkem-(Greenova-veta)
 permalink: I05---Integrál-s-kroužkem-(Greenova-věta)
 ---
 
@@ -22,7 +22,7 @@ $$\oint_C P,dx + Q,dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\par
 
 **Intuice:** místo počítání podél hranice (křivka) můžeš počítat přes celý vnitřek (plocha) — a naopak. Jsou to dvě tváře téhož čísla.
 
-> Tady se znovu objevují parciální derivace — viz [[05 parciální derivace a exaktní rovnice]] v kurzu difek.
+> Tady se znovu objevují parciální derivace — viz [[05 parcialni derivace a exaktni rovnice]] v kurzu difek.
 
 ### Speciální případ – plocha oblasti
 

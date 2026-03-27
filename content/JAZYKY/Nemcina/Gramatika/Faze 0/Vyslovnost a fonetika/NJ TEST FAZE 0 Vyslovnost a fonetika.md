@@ -1,5 +1,5 @@
 ---
-slug: NJ-TEST-FAZE-0-Výslovnost-a-fonetika
+slug: NJ-TEST-FAZE-0-Vyslovnost-a-fonetika
 permalink: NJ-TEST-FAZE-0-Výslovnost-a-fonetika
 ---
 **zadani**

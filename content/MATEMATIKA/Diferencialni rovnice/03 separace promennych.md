@@ -1,5 +1,5 @@
 ---
-slug: 03-separace-proměnných
+slug: 03-separace-promennych
 permalink: 03-separace-proměnných
 ---
 ---

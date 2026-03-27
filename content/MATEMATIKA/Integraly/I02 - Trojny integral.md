@@ -1,5 +1,5 @@
 ---
-slug: I02---Trojný-integrál
+slug: I02---Trojny-integral
 permalink: I02---Trojný-integrál
 ---
 
@@ -31,7 +31,7 @@ Integruje se opět **zevnitř ven**.
 Obdélníkové souřadnice jsou někdy zbytečně složité. Dva alternativní systémy:
 
 ### Cylindrické souřadnice
-více v [[I02.1 Sférické souřadnice]]
+více v [[I02.1 Sfericke souradnice]]
 Vhodné pro válce, kužele.
 
 $$x = r\cos\theta,\quad y = r\sin\theta,\quad z = z$$

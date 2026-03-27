@@ -1,5 +1,5 @@
 ---
-slug: 04-Reynoldsovo-číslo-a-turbulentní-proudění
+slug: 04-Reynoldsovo-cislo-a-turbulentni-proudeni
 permalink: 04-Reynoldsovo-číslo-a-turbulentní-proudění
 ---
 ## Reynoldsovo číslo

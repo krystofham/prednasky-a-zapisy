@@ -1,8 +1,8 @@
 ---
-slug: Hacking-webu-rychlá-stopa-bez-log
+slug: Hacking-webu-rychla-stopa-bez-log
 ---
 
-[[Hacking webu Rychlá stopa]]
+[[Hacking webu Rychla stopa]]
 Celý článek
 # Poznámky před testem
 > Nedávno jsem refactoroval starý projekt. Web pro časopis Rychlá stopa. Tento projekt byl mnou přeprogramován, ale jak je vlastně bezpečný?

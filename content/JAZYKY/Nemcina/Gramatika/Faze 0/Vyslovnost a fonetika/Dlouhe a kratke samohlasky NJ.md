@@ -1,5 +1,5 @@
 ---
-slug: Dlouhé-a-krátké-samohlásky-NJ
+slug: Dlouhe-a-kratke-samohlasky-NJ
 permalink: Dlouhé-a-krátké-samohlásky-NJ
 ---
 # 🇩🇪 Němčina A0 — Dlouhé a krátké samohlásky

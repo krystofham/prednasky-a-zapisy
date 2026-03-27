@@ -1,5 +1,5 @@
 ---
-slug: 04-pokročilé-diferenciální-rovnice
+slug: 04-pokrocile-diferencialni-rovnice
 permalink: 04-pokročilé-diferenciální-rovnice
 ---
 ---
@@ -21,7 +21,7 @@ Rovnice je exaktní právě tehdy, když:
 
 $$\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$$
 
-> Viz [[05 - Parciální derivace a exaktní rovnice]] pro geometrickou intuici a podrobný výpočet.
+> Viz [[05 - Parcialni derivace a exaktni rovnice]] pro geometrickou intuici a podrobný výpočet.
 
 ---
 

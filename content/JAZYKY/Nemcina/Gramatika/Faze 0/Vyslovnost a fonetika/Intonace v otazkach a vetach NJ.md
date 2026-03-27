@@ -1,5 +1,5 @@
 ---
-slug: Intonace-v-otázkách-a-větách-NJ
+slug: Intonace-v-otazkach-a-vetach-NJ
 permalink: Intonace-v-otázkách-a-větách-NJ
 ---
 # 🇩🇪 Němčina od nuly | Téma: Intonace v otázkách a větách

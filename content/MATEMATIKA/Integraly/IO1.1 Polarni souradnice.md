@@ -1,5 +1,5 @@
 ---
-slug: IO1.1-Polární-souřadnice
+slug: IO1.1-Polarni-souradnice
 ---
 
 # Polární souřadnice pro dvojné integrály

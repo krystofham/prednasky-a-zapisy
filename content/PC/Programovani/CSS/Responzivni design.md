@@ -1,5 +1,5 @@
 ---
-slug: Responzivní-design
+slug: Responzivni-design
 ---
 
 ## 1. Klasika: Media Queries (`@media`)

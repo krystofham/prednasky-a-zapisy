@@ -1,5 +1,5 @@
 ---
-slug: Čas-template
+slug: Cas-template
 permalink: Čas-template
 ---
 # [NÁZEV ČASU] — [JAZYK]

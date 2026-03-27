@@ -1,5 +1,5 @@
 ---
-slug: Ternární-operátor-JS
+slug: Ternarni-operator-JS
 permalink: Ternární-operátor-JS
 ---
 Podmínka? HodnotaKdyžAno : KdyžNe

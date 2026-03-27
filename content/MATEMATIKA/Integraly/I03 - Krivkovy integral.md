@@ -1,5 +1,5 @@
 ---
-slug: I03---Křivkový-integrál
+slug: I03---Krivkovy-integral
 permalink: I03---Křivkový-integrál
 ---
 

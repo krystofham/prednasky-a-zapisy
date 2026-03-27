@@ -1,5 +1,5 @@
 ---
-slug: -Dynamické-hmotného-bodu-intro
+slug: -Dynamicke-hmotneho-bodu-intro
 permalink: -Dynamické-hmotného-bodu-intro
 ---
 # Počátek
@@ -12,23 +12,23 @@ Cíl: osvězit znalosti a prohloubení znalostí spojenými s dynamikou hmotnéh
 # Obsah
 
 **Series 1 - Khan**
-[[0. Úvod do dynamiky]]
-[[1. Newtonovy pohybové zákony]]
+[[0. Uvod do dynamiky]]
+[[1. Newtonovy pohybove zakony]]
 [[2. Hybnost]]
-[[3. Nakloněná rovina]]
-[[4. Tah a deformace těles]]
-[[5. Dostředivá síla]]
-[[6. Newtonův gravitační zákon]]
-[[7. Keplerovy zákony]]
-[[8. Tření]]
-[[9. Ciolkovského rovnice]]
+[[3. Naklonena rovina]]
+[[4. Tah a deformace teles]]
+[[5. Dostrediva sila]]
+[[6. Newtonuv gravitacni zakon]]
+[[7. Keplerovy zakony]]
+[[8. Treni]]
+[[9. Ciolkovskeho rovnice]]
 
 ---
 **Series 2 - FYKOS + ŠKOLA**
-[[10. Rovnovážná poloha a stabilita tělesa]]
-[[11. Moment síly]]
-[[12. Výpočet sil]]
-[[13. Gravitační pole]]
+[[10. Rovnovazna poloha a stabilita telesa]]
+[[11. Moment sily]]
+[[12. Vypocet sil]]
+[[13. Gravitacni pole]]
 
 # Zdroje
 

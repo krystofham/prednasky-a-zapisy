@@ -1,5 +1,5 @@
 ---
-slug: Investiční-fondy
+slug: Investicni-fondy
 permalink: Investiční-fondy
 ---
 # Diverzifikace akcií - FONDY
@@ -199,4 +199,4 @@ ISIN (rodné číslo fondů)
 	- Kolik % je top 10?
 
 ---
-Více o ETF a jejich růstu z jiného pohledu lze dočíst v [[Monte Carlo metody a generátory (pseudo)náhodných čísel]] 
+Více o ETF a jejich růstu z jiného pohledu lze dočíst v [[Monte Carlo metody a generatory (pseudo)nahodnych cisel]] 

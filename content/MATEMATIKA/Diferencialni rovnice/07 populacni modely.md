@@ -1,5 +1,5 @@
 ---
-slug: 07-populační-modely
+slug: 07-populacni-modely
 permalink: 07-populační-modely
 ---
 ---
@@ -37,7 +37,7 @@ $$y' = ay - by^2$$
 - Pro velká $y$: růst se zpomaluje a zastavuje (člen $-by^2$ dominuje)
 - Rovnovážný stav: $y^* = a/b$
 
-> Toto je **Bernoulliho DR** → viz [[04 - Pokročilé diferenciální rovnice]]
+> Toto je **Bernoulliho DR** → viz [[04 - Pokrocile diferencialni rovnice]]
 
 ---
 

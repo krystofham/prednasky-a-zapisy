@@ -1,5 +1,5 @@
 ---
-slug: ČJ-OBSAH
+slug: CJ-OBSAH
 permalink: ČJ-OBSAH
 ---
 

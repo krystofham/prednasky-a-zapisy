@@ -1,5 +1,5 @@
 ---
-slug: Investiční-příležitosti-ve-světě
+slug: Investicni-prilezitosti-ve-svete
 permalink: Investiční-příležitosti-ve-světě
 ---
 # Trojúhelník
@@ -74,6 +74,6 @@ permalink: Investiční-příležitosti-ve-světě
 - CFD
 	- Contract for Difference
 	- Opce na krátkou dobu
-	- Více v [[Monte Carlo metody a generátory (pseudo)náhodných čísel]]
+	- Více v [[Monte Carlo metody a generatory (pseudo)nahodnych cisel]]
 
 ***Diverzifikace***

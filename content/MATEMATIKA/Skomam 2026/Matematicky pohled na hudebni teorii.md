@@ -1,5 +1,5 @@
 ---
-slug: Matematický-pohled-na-hudební-teorii
+slug: Matematicky-pohled-na-hudebni-teorii
 permalink: Matematický-pohled-na-hudební-teorii
 ---
 **Autor**: A. Böhm (ada@kreatix.org)

@@ -1,5 +1,5 @@
 ---
-slug: Dodělat
+slug: Dodelat
 ---
 Přednášky, které se mají
 - uspořádat

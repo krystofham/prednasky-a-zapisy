@@ -1,5 +1,5 @@
 ---
-slug: Integrály
+slug: Integraly
 ---
 
 #integraly, #vicenasobne, #krivkovy, #plošný
@@ -12,11 +12,11 @@ slug: Integrály
 
 |#|Téma|Stav|
 |---|---|---|
-|1|[[I01 - Dvojný integrál]]|✅|
-|2|[[I02 - Trojný integrál]]|✅|
-|3|[[I03 - Křivkový integrál]]|✅|
-|4|[[I04 - Plošný integrál]]|✅|
-|5|[[I05 - Integrál s kroužkem (Greenova věta)]]|✅|
+|1|[[I01 - Dvojny integral]]|✅|
+|2|[[I02 - Trojny integral]]|✅|
+|3|[[I03 - Krivkovy integral]]|✅|
+|4|[[I04 - Plosny integral]]|✅|
+|5|[[I05 - Integral s krouzkem (Greenova veta)]]|✅|
 # Shrnutí
 | **Typ integrálu**             | **Geometrický / Fyzikální význam**                               | **Matematický zápis**                                                                                            | **Typické souřadnicové systémy**          | **Klíčové věty a vztahy**                               | **Příklad aplikace**                           |                   |
 | ----------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------- | ---------------------------------------------- | ----------------- |

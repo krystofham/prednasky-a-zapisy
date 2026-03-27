@@ -57,6 +57,6 @@ https://www.youtube.com/playlist?list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8
 [[Memoize]]
 [[Markov chain]]
 # Neural networks (Nn)
-[[1. Co je to neuronová síť a jak se učí]]
+[[1. Co je to neuronova sit a jak se uci]]
 [[2. backpropagation Nn]]
 [[3. LLM Nn]]

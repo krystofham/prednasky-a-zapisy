@@ -1,5 +1,5 @@
 ---
-slug: Pracovní-list---pohyby-v-homogenním-tíhovém-(šikmý-vrh-vzhůru)-a-radiálním-poli-Země
+slug: Pracovni-list---pohyby-v-homogennim-tihovem-(sikmy-vrh-vzhuru)-a-radialnim-poli-Zeme
 permalink: Pracovní-list---pohyby-v-homogenním-tíhovém-(šikmý-vrh-vzhůru)-a-radiálním-poli-Země
 ---
 # Šikmý vrh

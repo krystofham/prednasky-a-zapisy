@@ -1,5 +1,5 @@
 ---
-slug: Kaskáda-a-specificita
+slug: Kaskada-a-specificita
 ---
 
 ## 1. Dědičnost (Inheritance)
