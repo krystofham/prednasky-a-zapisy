@@ -124,13 +124,13 @@ Toto se píše v **Command režimu** (zmáčkni `:`):
 
 ## 📋 Kopírování a vkládání
 
-|Klávesa|Co udělá|
-|---|---|
-|`yy`|Zkopíruje (yank) celý řádek|
-|`yw`|Zkopíruje slovo|
-|`y$`|Zkopíruje do konce řádku|
-|`p`|Vloží **za** kurzor / pod aktuální řádek|
-|`P`|Vloží **před** kurzor / nad aktuální řádek|
+| Klávesa | Co udělá                                   |
+| ------- | ------------------------------------------ |
+| `yy`    | Zkopíruje (yank) celý řádek                |
+| `yw`    | Zkopíruje slovo                            |
+| `y$`    | Zkopíruje do konce řádku                   |
+| `p`     | Vloží **za** kurzor / pod aktuální řádek   |
+| `P`     | Vloží **před** kurzor / nad aktuální řádek |
 
 ---
 

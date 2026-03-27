@@ -24,6 +24,9 @@ https://www.harvardonline.harvard.edu/course?type=individual&topic=technology-an
 # Naplánované, nerozpracované
 
 1) Neural network
+2) Bash
+3) JavaScript
+4) Pentesting
 # Nápady
 
 ## Konkrétnější
