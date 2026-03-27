@@ -1,5 +1,5 @@
 ---
-permalink: index
+slug: index
 title: Přednášky
 ---
 

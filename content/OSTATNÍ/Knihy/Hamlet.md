@@ -1,5 +1,5 @@
 ---
-permalink: Hamlet
+slug: Hamlet
 ---
 # Pozadí
 

@@ -1,5 +1,5 @@
 ---
-permalink: Flexbox
+slug: Flexbox
 ---
 # Jak centrovat div
 

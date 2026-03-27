@@ -1,5 +1,5 @@
 ---
-permalink: Integrály
+slug: Integrály
 ---
 
 #integraly, #vicenasobne, #krivkovy, #plošný

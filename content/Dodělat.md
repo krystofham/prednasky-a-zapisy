@@ -1,5 +1,5 @@
 ---
-permalink: Dodělat
+slug: Dodělat
 ---
 Přednášky, které se mají
 - uspořádat

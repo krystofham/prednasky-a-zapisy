@@ -1,5 +1,5 @@
 ---
-permalink: Výhody
+slug: Výhody
 ---
 # Obecně
 - nepřerušuje hru

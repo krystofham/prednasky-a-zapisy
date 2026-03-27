@@ -12,7 +12,7 @@ CSS
 ```
 
 ---
-permalink: Transformace
+slug: Transformace
 
 ## 2. `rotate(angle)` – Otočení
 

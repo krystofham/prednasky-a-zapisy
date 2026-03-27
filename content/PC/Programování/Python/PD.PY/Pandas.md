@@ -1,5 +1,5 @@
 ---
-permalink: Pandas
+slug: Pandas
 ---
 # Tags and src
 
