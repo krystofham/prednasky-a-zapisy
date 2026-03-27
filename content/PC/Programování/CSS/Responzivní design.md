@@ -17,6 +17,7 @@ Media queries jsou "přepínače". Říkají prohlížeči: „Pokud je displej 
 ```
 
 ---
+permalink: Responzivní-design
 
 ## 2. Funkce `min()`, `max()` a `clamp()`
 

@@ -3,6 +3,7 @@
 > **Vim** je terminálový textový editor, který je na první pohled matoucí, ale po zvládnutí základů extrémně rychlý a efektivní.
 
 ---
+permalink: Vim---basic-cmd
 
 ## 🚀 Jak spustit Vim
 

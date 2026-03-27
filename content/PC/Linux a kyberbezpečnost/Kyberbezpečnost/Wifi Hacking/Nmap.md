@@ -1,4 +1,5 @@
 ---
+permalink: Nmap
 ---
 # Background
 

@@ -1,4 +1,5 @@
 ---
+permalink: Dvojhlásky-—-ei,-au,-eu,-äu-NJ
 ---
 # 🇩🇪 Němčina od nuly | Téma: Dvojhlásky — ei, au, eu/äu
 

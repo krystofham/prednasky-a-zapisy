@@ -32,6 +32,7 @@ Více o nikto: [[nikto]]. U nikto (což je rychlejší, ale horší [[OWASP ZAP]
 - Absence of Anti-CSRF Tokens - Chybí unikátní kód v formuláři, který zajištuje to, že akci dělá uživatel.
 **Toto jsou asi nejvíce zranitelné věci, které jsem našel**
 ---
+permalink: Hacking-webu-rychlá-stopa-bez-log
 # gobuster
 Více o gobuster: [[gobuster]]. Po zděšení v OWASP, přišli i dobré zprávy. Stránka /admin dává kód 302 - redirect na login. Tento kód nejde obejít a do adminu se tak nikdo nepřihlášený nedostane. Zároveň /console běží na 400. Bez Pinu se tam člověk nedostane. Nicméně server jel v režimu debug a v reálné produkci toto není nastaveno.
 # ffuf

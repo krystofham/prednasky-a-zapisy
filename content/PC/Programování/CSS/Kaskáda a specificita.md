@@ -10,6 +10,7 @@ Některé vlastnosti se automaticky přenášejí z rodiče na potomka. Je to ef
 > **Tip:** Pokud chceš dědičnost vynutit, použij klíčové slovo `inherit` (např. `border: inherit;`).
 
 ---
+permalink: Kaskáda-a-specificita
 
 ## 2. Specificita (Bodový systém)
 

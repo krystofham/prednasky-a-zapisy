@@ -1,4 +1,5 @@
 ---
+permalink: Meta-tagy-HTML
 ---
 # pro SEO
 

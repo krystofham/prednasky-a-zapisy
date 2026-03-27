@@ -1,4 +1,5 @@
 ---
+permalink: Infinitive-carousel-CSS
 ---
 ```html
 <style>

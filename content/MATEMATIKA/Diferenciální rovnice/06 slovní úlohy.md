@@ -1,3 +1,7 @@
+---
+permalink: 06-slovní-úlohy
+---
+
 #diferencialni, #slovni-ulohy
 
 

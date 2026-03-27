@@ -1,4 +1,5 @@
 ---
+permalink: Data-structure-and-algorithms-obsah
 ---
 Data structure and algorithms = DSA
 # Tags a src

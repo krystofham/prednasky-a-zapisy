@@ -1,4 +1,5 @@
 ---
+permalink: Dlouhé-a-krátké-samohlásky-NJ
 ---
 # 🇩🇪 Němčina A0 — Dlouhé a krátké samohlásky
 

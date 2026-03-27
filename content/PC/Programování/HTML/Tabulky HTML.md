@@ -1,4 +1,5 @@
 ---
+permalink: Tabulky-HTML
 ---
 ```html
 <table>

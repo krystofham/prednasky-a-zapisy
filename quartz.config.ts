@@ -3,7 +3,7 @@ import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "🧠 Můj Vault",
+    pageTitle: "Kryštof Ham - Přednášky a zápisy",
     pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,

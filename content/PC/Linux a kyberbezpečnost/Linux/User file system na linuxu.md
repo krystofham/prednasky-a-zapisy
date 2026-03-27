@@ -1,4 +1,5 @@
 ---
+permalink: User-file-system-na-linuxu
 ---
 # Root
 - hlavní 

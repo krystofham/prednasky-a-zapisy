@@ -1,4 +1,5 @@
 ---
+permalink: Taylor-series
 ---
 #derivace
 # Jak aproximovat

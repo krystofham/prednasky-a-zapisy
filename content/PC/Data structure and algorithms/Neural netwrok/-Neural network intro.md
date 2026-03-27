@@ -1,4 +1,5 @@
 ---
+permalink: -Neural-network-intro
 ---
 # Počátek
 

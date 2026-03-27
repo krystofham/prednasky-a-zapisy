@@ -1,3 +1,7 @@
+---
+permalink: Fyzická-vrstva
+---
+
 # Účel
 - Přenášení dat přes médium
 # Standarty

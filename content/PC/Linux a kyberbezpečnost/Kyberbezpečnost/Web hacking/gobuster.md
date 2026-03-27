@@ -1,3 +1,7 @@
+---
+permalink: gobuster
+---
+
 # Režim dir
 gobuster dir ...
 

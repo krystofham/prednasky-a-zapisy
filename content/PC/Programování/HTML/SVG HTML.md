@@ -1,4 +1,5 @@
 ---
+permalink: SVG-HTML
 ---
 scalable image format
 properties lze upravovat v JS

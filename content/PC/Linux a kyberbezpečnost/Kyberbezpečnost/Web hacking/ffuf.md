@@ -1,3 +1,7 @@
+---
+permalink: ffuf
+---
+
 # Http option
 -u URL
 -w wordlist

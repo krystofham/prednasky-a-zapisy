@@ -1,4 +1,5 @@
 ---
+permalink: Tables-CSS
 ---
 
 ```css

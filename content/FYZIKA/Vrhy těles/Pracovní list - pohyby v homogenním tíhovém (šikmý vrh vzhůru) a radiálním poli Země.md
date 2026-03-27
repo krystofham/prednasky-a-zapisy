@@ -1,4 +1,5 @@
 ---
+permalink: Pracovní-list---pohyby-v-homogenním-tíhovém-(šikmý-vrh-vzhůru)-a-radiálním-poli-Země
 ---
 # Šikmý vrh
 1. Z jakých pohybů se skládá šikmý vrh? Uveď příklady takového vrhu.

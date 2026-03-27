@@ -1,3 +1,7 @@
+---
+permalink: I03---Křivkový-integrál
+---
+
 #integraly 
 #krivkovy 
 # 3. Křivkový integrál

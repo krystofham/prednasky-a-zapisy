@@ -80,7 +80,8 @@ Více o nikto: [[nikto]]. U nikto (což je rychlejší, ale horší [[OWASP ZAP]
 nikto -h 192.168.100.17 -p 5000 -Display P -mutate 12 -Tuning 12346890abde7
 - Mutate is deprecated, use -Plugins instead. The following option can be used in future: -Plugin @@DEFAULT;tests(passfiles,all)
 - Nikto v2.5.0
----------------------------------------------------------------------------
+---
+permalink: Hacking-webu-Rychlá-stopa------------------------------------------------------------------------
 + Target IP:          192.168.100.17
 + Target Hostname:    192.168.100.17
 + Target Port:        5000

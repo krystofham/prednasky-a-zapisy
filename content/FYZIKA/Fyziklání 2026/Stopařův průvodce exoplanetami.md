@@ -1,4 +1,5 @@
 ---
+permalink: Stopařův-průvodce-exoplanetami
 ---
 Autor: Daniel Dupkala
 	Slovák, Brno

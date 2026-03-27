@@ -1,4 +1,5 @@
 ---
+permalink: Přístupnost-(a11y)-HTML
 ---
 # Alt
 fur lobotom

@@ -1,3 +1,7 @@
+---
+permalink: Integrály
+---
+
 #integraly, #vicenasobne, #krivkovy, #plošný
 
 # 📚 Vícerozměrné integrály

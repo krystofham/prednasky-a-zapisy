@@ -1,4 +1,5 @@
 ---
+permalink: Pandas
 ---
 # Tags and src
 

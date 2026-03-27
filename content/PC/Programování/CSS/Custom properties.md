@@ -90,6 +90,7 @@ HTML
     
 
 ---
+permalink: Custom-properties
 
 ### Praktická ukázka: Přepínač témat
 

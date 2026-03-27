@@ -1,4 +1,5 @@
 ---
+permalink: 01-diferenciální-rovnice-–-úvod
 ---
 ---
 

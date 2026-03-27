@@ -1,4 +1,5 @@
 ---
+permalink: Numpy
 ---
 # Tags + src
 https://www.youtube.com/playlist?list=PLZPZq0r_RZOMldEsyG8-3BebUNbTFVfmY

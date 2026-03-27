@@ -11,6 +11,7 @@ Burp Suite je komplexní platforma pro testování zabezpečení webových aplik
 | **Comparer** | Porovnává dvě HTTP odpovědi.                          | Hledání drobných rozdílů při testování SQL Injection.      |
 
 ---
+permalink: Burp-Suite
 ## Intruder: Typy útoků (Attack Types)
 
 Tohle je v Burpu nejdůležitější část pro automatizaci. Určuje, jak se wordlisty vkládají do pozic `§FUZZ§`.

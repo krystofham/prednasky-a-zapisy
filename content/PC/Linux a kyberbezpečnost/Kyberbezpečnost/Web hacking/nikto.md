@@ -1,3 +1,7 @@
+---
+permalink: nikto
+---
+
 **-nolookup Disables DNS lookups**
 **-h Hosts**
 **-p Port**

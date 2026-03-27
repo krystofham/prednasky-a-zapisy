@@ -1,4 +1,5 @@
 ---
+permalink: Dodělat
 ---
 Přednášky, které se mají
 - uspořádat

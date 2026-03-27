@@ -1,4 +1,5 @@
 ---
+permalink: Pole-a-metody-JS
 ---
 Nutnost: [[Callback JS]]
 # Pole (Arrays)

@@ -1,4 +1,5 @@
 ---
+permalink: 05-Aerodynamika-a-odpor-těles
 ---
 Tato sekce popisuje síly působící na tělesa pohybující se v tekutině (kapalině nebo plynu) – nebo ekvivalentně, tekutinu obtékající těleso.
 

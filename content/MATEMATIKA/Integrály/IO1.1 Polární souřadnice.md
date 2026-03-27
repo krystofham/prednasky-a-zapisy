@@ -8,6 +8,7 @@ Místo polohy bodu pomocí $(x, y)$ popisujeme bod dvěma veličinami:
 - $\theta$ — úhel od osy $x$, $\theta \in [0, 2\pi]$
 
 ---
+permalink: IO1.1-Polární-souřadnice
 
 ## Převodní vzorce
 

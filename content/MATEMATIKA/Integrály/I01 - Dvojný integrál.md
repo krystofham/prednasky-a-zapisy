@@ -63,6 +63,7 @@ Hloubka jezírka v bodě $(x, y)$ je dána funkcí $h(x, y) = \sqrt{y}$ [metry].
 3. Průměrnou hloubku jezírka $\bar{h} = \dfrac{V}{S}$
 
 ---
+permalink: I01---Dvojný-integrál
 
 ## Krok 1: Určení mezí integrace
 

@@ -1,3 +1,7 @@
+---
+permalink: I04---Plošný-integrál
+---
+
 #integraly 
 #plošný 
 # 4. Plošný integrál

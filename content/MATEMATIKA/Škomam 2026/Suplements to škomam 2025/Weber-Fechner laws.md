@@ -1,4 +1,5 @@
 ---
+permalink: Weber-Fechner-laws
 ---
 Fechnerův zákon popisuje to, že pro intenzivnější podněty je složitější poznat rozdíl intenzity podnětu než pro slabší podněty. Jednoduše to lze odvodit z grafu matematické formulace Fechnerova zákona – zjednodušme ho pouze na přirozený logaritmus: Pokud vezmeme dvě stejné Δx, které umístíme různě daleko od počátku, Δy které k nim patří, budou různě velké – pro vzdálenější Δx bude Δy vždy menší. 
 # Hmotnost

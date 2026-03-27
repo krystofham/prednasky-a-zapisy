@@ -1,4 +1,5 @@
 ---
+permalink: Přehlásky-—-ä,-ö,-ü-NJ
 ---
 # 🇩🇪 Němčina od nuly | Téma: Přehlásky — Ä, Ö, Ü
 

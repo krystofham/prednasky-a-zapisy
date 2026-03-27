@@ -1,4 +1,5 @@
 ---
+permalink: DOM-JS
 ---
 DOM = Document Object Model
 <div id="container">

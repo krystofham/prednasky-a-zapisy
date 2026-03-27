@@ -1,3 +1,7 @@
+---
+permalink: I05---Integrál-s-kroužkem-(Greenova-věta)
+---
+
 #integraly , #greenova-veta , #stokesova-veta
 # Nutnost
 

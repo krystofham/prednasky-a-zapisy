@@ -1,4 +1,5 @@
 ---
+permalink: Forms-HTML
 ---
 Placeholder - příklad
 # Typy

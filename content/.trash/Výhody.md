@@ -1,4 +1,5 @@
 ---
+permalink: Výhody
 ---
 # Obecně
 - nepřerušuje hru

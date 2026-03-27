@@ -1,4 +1,5 @@
 ---
+permalink: Podmínky-a-smyčky-JS
 ---
 # Podmínky a loopy
 ## Podmínky

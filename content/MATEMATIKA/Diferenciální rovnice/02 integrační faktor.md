@@ -1,4 +1,5 @@
 ---
+permalink: 02-integrační-faktor
 ---
 ---
 

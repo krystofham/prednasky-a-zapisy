@@ -1,4 +1,5 @@
 ---
+permalink: 05-parciální-derivace-a-exaktní-rovnice
 ---
 ---
 

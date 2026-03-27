@@ -1,4 +1,5 @@
 ---
+permalink: Funkce-JS
 ---
 # Funkce
 Funkce je blok kódu, který můžeme opakovaně volat.

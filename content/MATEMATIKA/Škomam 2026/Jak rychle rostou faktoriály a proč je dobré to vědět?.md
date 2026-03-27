@@ -1,4 +1,5 @@
 ---
+permalink: Jak-rychle-rostou-faktoriály-a-proč-je-dobré-to-vědět?
 ---
 **Autor**: P. Vodstrčil.
 Platí: $1*2*3 * ... * (n-1)*n \Leftrightarrow (n!)^2 = (1**n)(2*(n-1)) ... ((n-1)*2)*(n*1)$ 

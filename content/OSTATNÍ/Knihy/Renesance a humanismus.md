@@ -1,4 +1,5 @@
 ---
+permalink: Renesance-a-humanismus
 ---
 # Renesance
 - Umělecký a myšlenkový proud

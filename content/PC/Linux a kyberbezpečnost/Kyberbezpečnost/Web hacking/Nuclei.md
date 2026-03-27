@@ -1,3 +1,7 @@
+---
+permalink: Nuclei
+---
+
 Využivá známé exploity
 **-u URL**
 **-t templates**

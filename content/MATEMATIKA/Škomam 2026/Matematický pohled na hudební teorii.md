@@ -1,4 +1,5 @@
 ---
+permalink: Matematický-pohled-na-hudební-teorii
 ---
 **Autor**: A. Böhm (ada@kreatix.org)
 Matematika je hudba. Proč?

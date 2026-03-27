@@ -1,4 +1,5 @@
 ---
+permalink: Investiční-příležitosti-ve-světě
 ---
 # Trojúhelník
 1) **Výnos** - nejvyšší

@@ -1,4 +1,5 @@
 ---
+permalink: wireshark
 ---
 # 🦈 Wireshark Starterpack
 

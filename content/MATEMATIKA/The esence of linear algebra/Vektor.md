@@ -8,6 +8,7 @@ První x, pak y, případně z.
 # Násobení číslem
 - Klasicky násobím všechno
 ---
+permalink: Vektor
 
 > Jeden bod v ose x se nazývá $\hat{\imath}$
 > Jeden bod v ose y se nazývá $\hat{\jmath}$

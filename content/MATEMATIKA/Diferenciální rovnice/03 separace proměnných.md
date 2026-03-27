@@ -1,4 +1,5 @@
 ---
+permalink: 03-separace-proměnných
 ---
 ---
 

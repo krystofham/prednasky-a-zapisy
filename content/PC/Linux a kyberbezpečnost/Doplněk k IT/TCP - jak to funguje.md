@@ -1,4 +1,5 @@
 ---
+permalink: TCP---jak-to-funguje
 ---
 https://www.youtube.com/watch?v=rmFX1V49K8U
 # TCP in a nutshell

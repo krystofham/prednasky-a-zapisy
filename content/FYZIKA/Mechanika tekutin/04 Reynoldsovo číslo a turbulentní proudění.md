@@ -1,4 +1,5 @@
 ---
+permalink: 04-Reynoldsovo-číslo-a-turbulentní-proudění
 ---
 ## Reynoldsovo číslo
 

@@ -1,4 +1,5 @@
 ---
+permalink: Pseudo-elementy-CSS
 ---
 # Content
 Bez vlastnosti `content` nebude pseudo-element fungovat. I kdyby měl být prázdný (jen pro barvu nebo čáru), musíš ho v CSS uvést:

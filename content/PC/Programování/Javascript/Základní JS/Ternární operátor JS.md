@@ -1,4 +1,5 @@
 ---
+permalink: Ternární-operátor-JS
 ---
 Podmínka? HodnotaKdyžAno : KdyžNe
 ```js

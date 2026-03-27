@@ -1,4 +1,5 @@
 ---
+permalink: 07-populační-modely
 ---
 ---
 

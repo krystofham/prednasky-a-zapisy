@@ -1,4 +1,5 @@
 ---
+permalink: Investiční-fondy
 ---
 # Diverzifikace akcií - FONDY
 

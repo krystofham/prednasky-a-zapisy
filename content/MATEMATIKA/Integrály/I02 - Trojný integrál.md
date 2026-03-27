@@ -1,3 +1,7 @@
+---
+permalink: I02---Trojný-integrál
+---
+
 #integraly 
 #trojny
 ![[Pasted image 20260325154301.png]]

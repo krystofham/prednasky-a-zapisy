@@ -1,4 +1,5 @@
 ---
+permalink: Monte-Carlo-metody-a-generátory-(pseudo)náhodných-čísel
 ---
 **Autor**: L. Kapera
 **Použití**: Kasino (především čistě náhodné hry např. ruleta a kostky), určité integrály

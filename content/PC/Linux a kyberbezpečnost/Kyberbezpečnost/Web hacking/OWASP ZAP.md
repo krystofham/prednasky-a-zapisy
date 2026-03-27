@@ -11,6 +11,7 @@ GOOGLE GEMINI
 |**Attack Mode**|Automaticky spustí Active Scan na každou novou stránku, kterou najde.|Pro rychlé, agresivní testování.|
 
 ---
+permalink: OWASP-ZAP
 
 ## Hlavní komponenty (Toolbox)
 

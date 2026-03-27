@@ -1,6 +1,7 @@
 # Vektorový součin a nabla — kompletní průvodce
 
 ---
+permalink: Vektorový-součin-a-nabla
 
 ## Co musíš umět předtím — prerekvizity
 

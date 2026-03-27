@@ -1,4 +1,5 @@
 ---
+permalink: NJ-TEST-FAZE-0-Výslovnost-a-fonetika
 ---
 **zadani**
 # 🇩🇪 Souhrnný test | Výslovnost a fonetika němčiny

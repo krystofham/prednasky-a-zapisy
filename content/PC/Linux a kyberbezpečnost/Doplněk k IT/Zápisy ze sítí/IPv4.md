@@ -1,4 +1,5 @@
 ---
+permalink: IPv4
 ---
 32 bitový systém  
 Pojí se k ní subnet mask  

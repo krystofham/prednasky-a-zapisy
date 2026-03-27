@@ -1,4 +1,5 @@
 ---
+permalink: Proměnné-a-typy-JS
 ---
 # Proměnné
 

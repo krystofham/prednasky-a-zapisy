@@ -1,4 +1,5 @@
 ---
+permalink: 08-picardova-věta-o-existenci
 ---
 ---
 

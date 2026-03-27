@@ -6,6 +6,7 @@ whatweb [options] URL
 `-a=LEVEL`
 1. Stealth - 1 request /target
 ---
+permalink: Whatweb
 3. Agressive - Více requestů
 4. Hodně requsetů
 # HTTP možnosti

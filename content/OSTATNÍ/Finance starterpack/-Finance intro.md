@@ -1,4 +1,5 @@
 ---
+permalink: -Finance-intro
 ---
 # Počátek
 

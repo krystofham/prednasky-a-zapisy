@@ -1,4 +1,5 @@
 ---
+permalink: cat
 ---
 # Vypsat content souborů
 ```bash
