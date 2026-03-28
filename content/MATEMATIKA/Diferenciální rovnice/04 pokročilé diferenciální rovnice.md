@@ -21,7 +21,7 @@ Rovnice je exaktní právě tehdy, když:
 
 $$\frac{\partial M}{\partial y} = \frac{\partial N}{\partial x}$$
 
-> Viz [[05 - Parciální derivace a exaktní rovnice]] pro geometrickou intuici a podrobný výpočet.
+> Viz [[05 Parciální derivace a exaktní rovnice]] pro geometrickou intuici a podrobný výpočet.
 
 ---
 

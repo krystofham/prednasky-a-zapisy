@@ -38,7 +38,7 @@ $$y' = 2xy \Rightarrow \frac{dy}{dx} = 2xy \Rightarrow \frac{dy}{y} = 2x, dx$$
 
 $$\Rightarrow \int \frac{dy}{y} = \int 2x, dx \Rightarrow \ln|y| = x^2 + C$$
 
-> ➡️ Pokračování: [[03 - Separace proměnných]]
+> ➡️ Pokračování: [[03 separace proměnných]]
 
 ## Lineární diferenciální rovnice 1. řádu
 
@@ -46,7 +46,7 @@ Obecný tvar:
 
 $$y' + p(x) \cdot y = q(x)$$
 
-> Nelze jen tak integrovat obě strany – překáží člen $p(x) \cdot y$. Řešení: **integrační faktor** → [[02 - Integrační faktor]]
+> Nelze jen tak integrovat obě strany – překáží člen $p(x) \cdot y$. Řešení: **integrační faktor** → [[02 integrační faktor]]
 
 ## Zdroje
 

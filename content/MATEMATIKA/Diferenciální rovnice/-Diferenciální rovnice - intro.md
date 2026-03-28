@@ -1,13 +1,12 @@
 ---
 tags:
-
-- derivace
-- integraly
-- diferencialni
-created: 2026-01-20 
-author: "J. Bouchala, Paul Dawkins, 3Blue1Brown" 
+  - derivace
+  - integraly
+  - diferencialni
+created: 2026-01-20
+author: J. Bouchala, Paul Dawkins, 3Blue1Brown
 status: rozpracováno
-
+AI: CLAUDE.AI
 ---
 
 # 📚 Diferenciální rovnice

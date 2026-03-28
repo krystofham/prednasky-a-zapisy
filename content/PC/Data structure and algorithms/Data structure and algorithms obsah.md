@@ -50,9 +50,9 @@ https://www.youtube.com/playlist?list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8
 [[Diffie-Hellman DSA]]
 [[Fast Fourier Transform DSA]]
 [[Simplex Algorithm DSA]]
-[[Memoize]]
-[[Markov chain]]
+[[Memoize DSA]]
+[[Markov chain DSA]] (https://www.youtube.com/watch?v=KZeIEiBrT_w)
 # Neural networks (Nn)
-[[1. Co je to neuronová síť a jak se učí]]
+[[1. Co je to neuronová síť a jak se učí Nn]]
 [[2. backpropagation Nn]]
 [[3. LLM Nn]]

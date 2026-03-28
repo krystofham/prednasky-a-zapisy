@@ -7,7 +7,7 @@
 
 1. Identifikuj **hledanou veličinu** a zapiš ji jako funkci (např. $y(t)$)
 2. Sestav diferenciální rovnici z podmínek úlohy
-3. Vyřeš DR příslušnou metodou ([[02 - Integrační faktor]], [[03 - Separace proměnných]], ...)
+3. Vyřeš DR příslušnou metodou ([[02 Integrační faktor]], [[03 Separace proměnných]], ...)
 4. Dosaď počáteční podmínky → urči konstantu $C$
 5. Interpretuj výsledek
 
