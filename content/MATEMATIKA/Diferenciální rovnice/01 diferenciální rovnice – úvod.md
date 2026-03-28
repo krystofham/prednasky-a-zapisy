@@ -1,7 +1,8 @@
 ---
+tags:
+  - diferencialni
+  - prvni-rad
 ---
----
-
 #diferencialni #prvni-rad
 
 

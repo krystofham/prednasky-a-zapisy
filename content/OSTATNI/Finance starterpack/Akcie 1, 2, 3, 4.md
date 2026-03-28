@@ -1,7 +1,3 @@
----
-slug: Akcie-1,-2,-3,-4
-permalink: Akcie-1,-2,-3,-4
----
 # Finanční trh
 -  Cizí měna
 - Peněžní trh

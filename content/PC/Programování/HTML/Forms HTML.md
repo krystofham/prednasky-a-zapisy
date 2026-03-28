@@ -1,5 +1,3 @@
----
----
 Placeholder - příklad
 # Typy
 - checkbox

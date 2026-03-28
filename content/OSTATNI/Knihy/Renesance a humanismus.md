@@ -1,7 +1,3 @@
----
-slug: Renesance-a-humanismus
-permalink: Renesance-a-humanismus
----
 # Renesance
 - Umělecký a myšlenkový proud
 - Itálie, Benátky

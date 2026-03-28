@@ -1,5 +1,3 @@
----
----
 #derivace
 # Jak aproximovat
 ## Cos x

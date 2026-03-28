@@ -1,5 +1,3 @@
----
----
 # Definice
 
 ```css

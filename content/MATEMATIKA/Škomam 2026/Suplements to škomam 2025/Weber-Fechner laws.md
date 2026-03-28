@@ -1,5 +1,3 @@
----
----
 Fechnerův zákon popisuje to, že pro intenzivnější podněty je složitější poznat rozdíl intenzity podnětu než pro slabší podněty. Jednoduše to lze odvodit z grafu matematické formulace Fechnerova zákona – zjednodušme ho pouze na přirozený logaritmus: Pokud vezmeme dvě stejné Δx, které umístíme různě daleko od počátku, Δy které k nim patří, budou různě velké – pro vzdálenější Δx bude Δy vždy menší. 
 # Hmotnost
 Weber přišel na to, že pokud máme dvě závaží – například 100 gramů a 105 gramů, je jednoduché rozlišit, které z nich je to těžší. Pokud ale vezmeme dvě závaží se stejným rozdílem hmotností, ale těžší, už to nepůjde poznat – například 500 gramů a 505 gramů nelze rozeznat.

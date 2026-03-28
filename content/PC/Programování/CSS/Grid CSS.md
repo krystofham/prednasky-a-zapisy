@@ -1,5 +1,3 @@
----
----
 display: grid
 ```css
 .gridcontainer{

@@ -1,5 +1,3 @@
----
----
 Autor: Daniel Dupkala
 	Slovák, Brno
 # Staty

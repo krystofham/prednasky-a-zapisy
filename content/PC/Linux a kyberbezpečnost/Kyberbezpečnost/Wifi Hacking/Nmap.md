@@ -1,5 +1,3 @@
----
----
 # Background
 
 - Rychle skenovat velké sítě

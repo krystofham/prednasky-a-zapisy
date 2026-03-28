@@ -1,5 +1,3 @@
----
----
 ## Reynoldsovo číslo
 
 $$Re = \frac{\rho v d}{\eta} = \frac{v d}{\nu}$$

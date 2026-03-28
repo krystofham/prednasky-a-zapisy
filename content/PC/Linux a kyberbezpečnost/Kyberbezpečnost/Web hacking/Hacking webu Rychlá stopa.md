@@ -78,14 +78,14 @@ Více o nikto: [[nikto]]. U nikto (což je rychlejší, ale horší [[OWASP ZAP]
 nikto -h 192.168.100.17 -p 5000 -Display P -mutate 12 -Tuning 12346890abde7
 - Mutate is deprecated, use -Plugins instead. The following option can be used in future: -Plugin @@DEFAULT;tests(passfiles,all)
 - Nikto v2.5.0
----------------------------------------------------------------------------
+---------------------------------------------------------------------
 + Target IP:          192.168.100.17
 + Target Hostname:    192.168.100.17
 + Target Port:        5000
 + Using Mutation:     Test all files with all root directories
 + Using Mutation:     Guess for password file names
 + Start Time:         2026-03-27 12:43:45 (GMT-4)
----------------------------------------------------------------------------
+---------------------------------------------------------------------
 + Server: Werkzeug/3.1.7 Python/3.14.2
 + /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
 + /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/

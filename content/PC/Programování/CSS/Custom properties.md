@@ -90,20 +90,24 @@ HTML
     
 
 ---
-
+tags:
+  - ffffff
+  - 000000
+  - 1a1a1a
+  - f0f0f0
 ### Praktická ukázka: Přepínač témat
 
 CSS
 
 ```
 :root {
-  --bg: #ffffff;
-  --text: #000000;
+  --bg: ;
+  --text: ;
 }
 
 [data-theme="dark"] {
-  --bg: #1a1a1a;
-  --text: #f0f0f0;
+  --bg: ;
+  --text: ;
 }
 
 body {
@@ -112,7 +116,6 @@ body {
   transition: background 0.3s ease;
 }
 ```
-
 ---
 
 Vypadá to, že stavíš solidní základy pro čistý kód. **Chceš, abych ti ukázal, jak tyhle proměnné elegantně přepínat pomocí JavaScriptu (např. pro Dark Mode)?**

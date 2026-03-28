@@ -1,5 +1,3 @@
----
----
 # Picture
 
 ```html

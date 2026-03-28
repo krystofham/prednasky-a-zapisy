@@ -1,5 +1,3 @@
----
----
 Command do terminálu v Linuxu.
 # Příkaz Grep – tahák
 

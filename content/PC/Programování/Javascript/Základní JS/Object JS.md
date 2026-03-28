@@ -1,5 +1,3 @@
----
----
 Autor BroCode https://www.youtube.com/watch?v=lo7o91qLzxc
 Soubor metod a hodnot
 ```js

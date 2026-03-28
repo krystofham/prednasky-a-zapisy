@@ -1,5 +1,3 @@
----
----
 Nutnost: [[Callback JS]]
 # Pole (Arrays)
 

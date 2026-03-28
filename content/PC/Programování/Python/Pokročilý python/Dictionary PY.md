@@ -1,5 +1,3 @@
----
----
 # Printing
 
 ```python

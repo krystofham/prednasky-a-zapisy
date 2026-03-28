@@ -1,7 +1,3 @@
----
-slug: -Finance-intro
-permalink: -Finance-intro
----
 # Počátek
 
 Kurz vytvořen: 4.2.2026

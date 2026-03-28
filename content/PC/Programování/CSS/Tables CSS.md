@@ -1,6 +1,3 @@
----
----
-
 ```css
 table {
   border-collapse: collapse;

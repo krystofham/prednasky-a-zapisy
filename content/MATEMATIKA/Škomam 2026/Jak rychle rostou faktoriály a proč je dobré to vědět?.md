@@ -1,5 +1,3 @@
----
----
 **Autor**: P. Vodstrčil.
 Platí: $1*2*3 * ... * (n-1)*n \Leftrightarrow (n!)^2 = (1**n)(2*(n-1)) ... ((n-1)*2)*(n*1)$ 
 Každá závorka má tvar $k(n-k+1)$, kde $k \in \{1...,n\}$. Platí, že $$n \leqq k(n-k+1) \leqq \big( \frac{n+1}{2}\big)^2$$ Proto platí $$n^n \leq (n!)^2 \leq \big(\frac{n+1}{2}\big)^{2n}$$

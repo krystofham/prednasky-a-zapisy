@@ -1,5 +1,3 @@
----
----
 # 🇩🇪 Němčina A0 — Dlouhé a krátké samohlásky
 
 > **Úroveň:** A0 | **Týden studia:** 0 | **Téma:** Dlouhé a krátké samohlásky (Vokale)

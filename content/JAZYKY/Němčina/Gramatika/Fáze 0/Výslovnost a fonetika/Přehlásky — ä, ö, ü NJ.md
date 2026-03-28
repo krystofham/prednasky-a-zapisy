@@ -1,5 +1,3 @@
----
----
 # 🇩🇪 Němčina od nuly | Téma: Přehlásky — Ä, Ö, Ü
 
 **Úroveň:** A0 | **Jazyk výuky:** Čeština | **Týden studia:** 0

@@ -1,8 +1,10 @@
 ---
+tags:
+  - diferencialni
+  - pokrocile
+  - exaktni
+  - parcialni-derivace
 ---
----
-
-#diferencialni, #pokrocile, #exaktni, #parcialni-derivace
 ## Exaktní rovnice
 
 ### Definice

@@ -1,5 +1,3 @@
----
----
 # 🇩🇪 Němčina od nuly | Téma: Souhlásky — ch, sch, st, sp, ß
 
 **Úroveň:** A0 | **Jazyk výuky:** Čeština | **Týden studia:** 0

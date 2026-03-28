@@ -1,5 +1,3 @@
----
----
 # Jak centrovat div
 
 ```css

@@ -1,5 +1,3 @@
----
----
 # 🇩🇪 Němčina od nuly | Téma: Dvojhlásky — ei, au, eu/äu
 
 **Úroveň:** A0 | **Jazyk výuky:** Čeština | **Týden studia:** 0

@@ -1,9 +1,9 @@
 ---
+tags:
+  - diferencialni
+  - parcialni-derivace
+  - exaktni
 ---
----
-
-#diferencialni, #parcialni-derivace, #exaktni
-
 ## Co je parciální derivace?
 
 Parciální derivace funkce dvou proměnných $f(x, y)$ je derivace **jen podle jedné proměnné** – druhou považujeme za konstantu.

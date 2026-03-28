@@ -1,8 +1,6 @@
 ---
----
----
-
 #diferencialni, #separace, #nelinearni
+---
 > Přechod od **lineárních** k **nelineárním** diferenciálním rovnicím.
 
 ## Obecný tvar

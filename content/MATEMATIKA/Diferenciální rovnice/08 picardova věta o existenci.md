@@ -1,9 +1,9 @@
 ---
+tags:
+  - diferencialni
+  - picardova-veta
+  - existence
 ---
----
-
-#diferencialni, #picardova-veta, #existence
-
 > **Stav:** Aktuálně rozpracováno (11.2.2026). Toto je místo, kde kurz pokračuje.
 
 ---

@@ -1,5 +1,3 @@
----
----
 # 🇩🇪 Němčina od nuly | Téma: Přízvuk ve slovech
 
 **Úroveň:** A0 | **Jazyk výuky:** Čeština | **Týden studia:** 0

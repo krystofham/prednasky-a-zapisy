@@ -10,7 +10,9 @@ Některé vlastnosti se automaticky přenášejí z rodiče na potomka. Je to ef
 > **Tip:** Pokud chceš dědičnost vynutit, použij klíčové slovo `inherit` (např. `border: inherit;`).
 
 ---
-
+tags:
+  - header
+  - nav
 ## 2. Specificita (Bodový systém)
 
 Když na jeden element míří více pravidel, vyhrává to s **vyšší specificitou**. Můžeš si to představit jako skóre:
@@ -18,12 +20,11 @@ Když na jeden element míří více pravidel, vyhrává to s **vyšší specifi
 |Selektor|Body|Příklad|
 |---|---|---|
 |**Inline styl**|1, 0, 0, 0|`<h1 style="color: red;">`|
-|**ID**|0, 1, 0, 0|`#header`|
+|**ID**|0, 1, 0, 0|``|
 |**Třída, Atribut, Pseudo-třída**|0, 0, 1, 0|`.btn`, `[type="text"]`, `:hover`|
 |**Element, Pseudo-element**|0, 0, 0, 1|`h1`, `div`, `::before`|
 
-**Příklad:** `#nav .link` (110 bodů) porazí `nav a` (2 body), i když je v kódu dříve.
-
+**Příklad:** `.link` (110 bodů) porazí `nav a` (2 body), i když je v kódu dříve.
 ---
 
 ## 3. !important (Nukleární zbraň)

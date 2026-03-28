@@ -1,5 +1,3 @@
----
----
 # [NÁZEV ČASU] — [JAZYK]
 
 > _[Stručný popis v jedné větě — co tento čas vyjadřuje]_

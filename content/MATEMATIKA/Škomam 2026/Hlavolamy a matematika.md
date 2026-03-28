@@ -1,5 +1,3 @@
----
----
 Autor: P. Kovář
 Rozměr: 3|3|3
 ## Z cube

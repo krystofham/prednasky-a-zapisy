@@ -1,7 +1,3 @@
----
-slug: Investicni-prilezitosti-ve-svete
-permalink: Investiční-příležitosti-ve-světě
----
 # Trojúhelník
 1) **Výnos** - nejvyšší
 2) **Riziko** - nejnižší

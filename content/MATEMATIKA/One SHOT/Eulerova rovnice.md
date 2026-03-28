@@ -1,5 +1,3 @@
----
----
 Src:https://www.youtube.com/watch?v=co7gJJHf6IQ
 # Tags
 #euler

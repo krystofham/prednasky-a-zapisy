@@ -1,5 +1,3 @@
----
----
 # Podmínky a loopy
 ## Podmínky
 Základní podmínka:

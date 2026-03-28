@@ -1,5 +1,3 @@
----
----
 # Alt
 fur lobotom
 

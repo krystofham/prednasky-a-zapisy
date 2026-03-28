@@ -1,5 +1,3 @@
----
----
 # Funkce
 Funkce je blok kódu, který můžeme opakovaně volat.
 ## Základní funkce

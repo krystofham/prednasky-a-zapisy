@@ -1,5 +1,3 @@
----
----
 Nutnost: [[Dictionary PY]], seznamy, funkce python (pouze [[Funkce JS]] v JS, jiná syntax, podobný meaning)
 SRC: https://www.youtube.com/watch?v=4jBJhCaNrWU
 

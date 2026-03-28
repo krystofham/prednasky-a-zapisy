@@ -1,5 +1,3 @@
----
----
 Působíš jako zkušený lektor cizích jazyků. Analyzuj text písně, kterou ti pošlu níže, se zaměřením na studenta na úrovni **A1 až A2**.
 
 **Můj cíl:** Naučit se užitečné fráze a slovíčka pro běžnou mluvu a uložit si je do Anki.

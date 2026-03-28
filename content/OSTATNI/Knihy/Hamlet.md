@@ -1,6 +1,3 @@
----
-slug: Hamlet
----
 # Pozadí
 
 Dánský hrad Elsinore. Odehrává se v době, kdy se Norsko chce zaútočit na Dánsko

@@ -1,5 +1,3 @@
----
----
 **Autor**: L. Kapera
 **Použití**: Kasino (především čistě náhodné hry např. ruleta a kostky), určité integrály
 **Přístup**: Náhodné údaje, z toho pravděpodobnost

@@ -1,5 +1,3 @@
----
----
 **Autor**: A. Böhm (ada@kreatix.org)
 Matematika je hudba. Proč?
 Strunné nástroje a dechové nástroje. Overtones jsou harmonické *jen u strunných*, protože jsou to násobky. 

@@ -1,9 +1,6 @@
 ---
----
----
-
 #diferencialni, #integracni-faktor, #linearni
-
+---
 
 
 > 📖 Zdroj: J. Bouchala, Paul Dawkins

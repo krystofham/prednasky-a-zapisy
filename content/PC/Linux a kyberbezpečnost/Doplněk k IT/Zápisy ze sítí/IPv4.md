@@ -1,5 +1,3 @@
----
----
 32 bitový systém  
 Pojí se k ní subnet mask  
 # Subnet mask  

@@ -1,5 +1,3 @@
----
----
 Přednášky, které se mají
 - uspořádat
 - dodělat

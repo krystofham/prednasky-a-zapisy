@@ -1,5 +1,3 @@
----
----
 scalable image format
 properties lze upravovat v JS
 # Použití

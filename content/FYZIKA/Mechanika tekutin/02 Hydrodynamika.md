@@ -1,5 +1,3 @@
----
----
 Hydrodynamika popisuje chování tekutin **při proudění**. Předpokládáme nejprve ideální kapalinu (nestlačitelnou, neviskózní), poté přidáme reálné efekty.
 
 ---

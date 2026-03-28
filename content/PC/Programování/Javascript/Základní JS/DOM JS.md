@@ -1,5 +1,3 @@
----
----
 DOM = Document Object Model
 <div id="container">
   <div class="display"></div>
@@ -66,14 +64,20 @@ Container = parent
 display = children
 
 ---
+tags:
+  - container
+  - container
+  - container
+  - btn
+  - btn
 # Jak to funguje?
 
 
 ```javascript
-// selects the #container div (don't worry about the syntax, we'll get there)
-const container = document.querySelector("#container");
+// selects the div (don't worry about the syntax, we'll get there)
+const container = document.querySelector("");
 
-// selects the first child of #container => .display
+// selects the first child of => .display
 const display = container.firstElementChild;
 console.log(display);  // <div class="display"></div>
 ```
@@ -159,12 +163,12 @@ div.innerHTML = "<span>Hello World!</span>";
 - **Problém:** V HTML máš místo pro **pouze jeden** `onclick`. Pokud tam chceš dvě věci najednou, máš smůlu.
 - To lze udělat i v JS
 ```js
-const btn = document.querySelector("#btn");
+const btn = document.querySelector("");
 btn.onclick = () => alert("Ahoj");
 ```
 ## Event listener
 ```js 
-const btn = document.querySelector("#btn");
+const btn = document.querySelector("");
 
 btn.addEventListener("click", () => {
   alert("První akce!");
@@ -181,7 +185,6 @@ function adddiv (){
 }
 btn.addEventListener("click", adddiv);
 ```
-
 ---
 ```html
 <div id="container">

@@ -1,5 +1,3 @@
----
----
 # Obecně
 - nepřerušuje hru
 - pokračovat ve hře

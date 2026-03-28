@@ -1,5 +1,3 @@
----
----
 # Šikmý vrh
 1. Z jakých pohybů se skládá šikmý vrh? Uveď příklady takového vrhu.
 2. Na čem závisí délka vrhu?

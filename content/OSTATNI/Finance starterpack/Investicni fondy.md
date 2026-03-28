@@ -1,7 +1,3 @@
----
-slug: Investicni-fondy
-permalink: Investiční-fondy
----
 # Diverzifikace akcií - FONDY
 
 Láme se okolo **30-40** akcií.

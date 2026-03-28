@@ -1,5 +1,3 @@
----
----
 Nutnost
 Funkce, která se posílá do další funkce
 ```js

@@ -1,5 +1,3 @@
----
----
 # Počátek
 
 Kurz vytvořen: 13.2.2026

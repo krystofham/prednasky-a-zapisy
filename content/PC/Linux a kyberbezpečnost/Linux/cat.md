@@ -1,5 +1,3 @@
----
----
 # Vypsat content souborů
 ```bash
 cat testfile.txt

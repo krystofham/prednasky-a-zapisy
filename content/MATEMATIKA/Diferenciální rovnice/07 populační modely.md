@@ -1,9 +1,9 @@
 ---
+tags:
+  - diferencialni
+  - populacni-modely
+  - aplikace
 ---
----
-
-#diferencialni, #populacni-modely, #aplikace
-
 
 > 🎥 Zdroje:
 > - [Population growth – YouTube](https://www.youtube.com/results?search_query=The+population+growth+mathematics)

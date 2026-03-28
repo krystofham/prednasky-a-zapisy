@@ -1,5 +1,3 @@
----
----
 Autor: Jan Kracík
 **Data a práce s nimi, Teorie pravděpodobnosti**
 # Míra
