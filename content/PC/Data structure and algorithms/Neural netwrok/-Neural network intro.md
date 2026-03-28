@@ -1,6 +1,4 @@
 ---
-slug: -Neural-network-intro
-permalink: -Neural-network-intro
 ---
 # Počátek
 
@@ -9,7 +7,7 @@ Kurz začat:
 Kurz skončil: 
 # Obsah
 
-[[1. Co je to neuronova sit a jak se uci]]
+[[1. Co je to neuronová síť a jak se učí]]
 [[2. backpropagation]]
 [[3. LLM]]
 # Zdroje

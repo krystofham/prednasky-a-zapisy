@@ -1,6 +1,4 @@
 ---
-slug: 01-Hydrostatika
-permalink: 01-Hydrostatika
 ---
 Hydrostatika se zabývá chováním kapalin a plynů, které jsou **v klidu** (nepohybují se). Zkoumá, jak na ně působí gravitace a jak přenášejí tlak.
 
