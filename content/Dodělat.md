@@ -3,7 +3,7 @@
 Přednášky, které se mají
 - uspořádat
 - dodělat
-- dohledat
+- dohledat 
 - vytvořit
 - atd
 https://www.harvardonline.harvard.edu/course?type=individual&topic=technology-and-innovation
@@ -27,6 +27,7 @@ https://www.harvardonline.harvard.edu/course?type=individual&topic=technology-an
 2) Bash
 3) JavaScript
 4) Pentesting
+5) Algoritmy
 # Nápady
 
 ## Konkrétnější
@@ -35,10 +36,7 @@ https://www.harvardonline.harvard.edu/course?type=individual&topic=technology-an
 3) Parametrické funkce, polární souřadnice, vektorové funkce
 4) parciální tlaky
 5) **Matice**
-	1) Fouberiova veta
-	2) https://prase.cz/common/show.php?title=Matice+2+%26times%3B+2&file=library/Matice2x2HS/Matice2x2HS 
-	3) https://prase.cz/common/show.php?title=Matice&file=library/MaticeKF/MaticeKF
-	4) https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab  - Důležité
+
 6) Plasma a skupenství
 7) **Zrcadla**
 8) Posloupnosti a řady
