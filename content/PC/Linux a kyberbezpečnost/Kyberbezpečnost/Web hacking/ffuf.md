@@ -3,7 +3,7 @@
 -w wordlist
 -X metoda (get, post)
 -d Data, která se posílají v těle 
--d "user=admin&pass=123"
+-d "user=admin&pass=FUZZ"
 # Filtrování
 -fs size ignoruj odpověd o těchto bytech
 -fc code (404, 403)

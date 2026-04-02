@@ -53,14 +53,14 @@ Google Gemini ve spolupráci s dokumentací nikto
 -mutate+
 nikto docs + gemini
 
-|**ID**|**Technika**|**Co přesně dělá?**|**Cíl (Co chce najít)**|
-|---|---|---|---|
-|**1**|**Test all files in all roots**|Vezme všechny známé nebezpečné soubory z databáze a zkusí je najít ve všech objevených podadresářích.|Zapomenuté skripty nebo zálohy v hlubší struktuře webu.|
-|**2**|**Guess password file names**|Zkouší běžné názvy souborů s hesly (např. `passwd`, `password.txt`, `shadow`, `.htpasswd`).|Přihlašovací údaje uložené přímo na webovém serveru.|
-|**3**|**Apache user enumeration**|Zkouší přistupovat k adresářům uživatelů pomocí vlnovky (`/~root`, `/~admin`, `/~user`).|Seznam platných uživatelských jmen v systému (podle odpovědi serveru).|
-|**4**|**cgiwrap enumeration**|Podobné jako u bodu 3, ale využívá k tomu skript `cgiwrap` (častý u starších hostingů).|Odhalení uživatelů přes specifické CGI rozhraní.|
-|**5**|**Sub-domain brute force**|Zkouší běžné subdomény (např. `dev.web.cz`, `test.web.cz`, `vpn.web.cz`) na základě názvu hlavní domény.|Skryté vývojové nebo testovací verze webu, které nejsou veřejně linkované.|
-|**6**|**Dictionary directory guess**|Použije externí soubor se slovy (slovník) k hádání názvů adresářů (např. `/backup`, `/old`, `/secret`).|Adresáře, které nejsou v základní databázi Nikto, ale jsou v dodaném slovníku.|
+| **ID** | **Technika**                    | **Co přesně dělá?**                                                                                      | **Cíl (Co chce najít)**                                                        |
+| ------ | ------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| **1**  | **Test all files in all roots** | Vezme všechny známé nebezpečné soubory z databáze a zkusí je najít ve všech objevených podadresářích.    | Zapomenuté skripty nebo zálohy v hlubší struktuře webu.                        |
+| **2**  | **Guess password file names**   | Zkouší běžné názvy souborů s hesly (např. `passwd`, `password.txt`, `shadow`, `.htpasswd`).              | Přihlašovací údaje uložené přímo na webovém serveru.                           |
+| **3**  | **Apache user enumeration**     | Zkouší přistupovat k adresářům uživatelů pomocí vlnovky (`/~root`, `/~admin`, `/~user`).                 | Seznam platných uživatelských jmen v systému (podle odpovědi serveru).         |
+| **4**  | **cgiwrap enumeration**         | Podobné jako u bodu 3, ale využívá k tomu skript `cgiwrap` (častý u starších hostingů).                  | Odhalení uživatelů přes specifické CGI rozhraní.                               |
+| **5**  | **Sub-domain brute force**      | Zkouší běžné subdomény (např. `dev.web.cz`, `test.web.cz`, `vpn.web.cz`) na základě názvu hlavní domény. | Skryté vývojové nebo testovací verze webu, které nejsou veřejně linkované.     |
+| **6**  | **Dictionary directory guess**  | Použije externí soubor se slovy (slovník) k hádání názvů adresářů (např. `/backup`, `/old`, `/secret`).  | Adresáře, které nejsou v základní databázi Nikto, ale jsou v dodaném slovníku. |
 
 # Co hledat
 -Tuning+
