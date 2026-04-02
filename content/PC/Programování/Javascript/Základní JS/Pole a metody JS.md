@@ -59,6 +59,20 @@ for (let jmeno of jmena) {
 jmena.includes("Jan");   // true / false
 jmena.indexOf("Eva");    // index nebo -1
 ```
+## Tvorba mergováním dvou listů 
+```js
+const programmingLanguages = ["JavaScript", "Python", "C++"];
+const newList = programmingLanguages.concat("Perl");
+
+console.log(newList); // ["JavaScript", "Python", "C++", "Perl"]
+```
+## Join
+```js
+const reversedArray = ["o", "l", "l", "e", "h"];
+const reversedString = reversedArray.join("");
+
+console.log(reversedString); // "olleh"
+```
 ## map() – úprava pole
 
 Autor: brocode https://www.youtube.com/watch?v=xNQH1NbZQ0E
