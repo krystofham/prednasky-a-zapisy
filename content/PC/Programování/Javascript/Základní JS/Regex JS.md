@@ -39,4 +39,5 @@ const regex = /freeCodeCamp/i;
 | g                       | více nálezů                       |
 | ^ (začátek)             | pouze explicitní shoda na začátku |
 | $ (konec před závorkou) | pouze explicitní shoda na konci   |
-|                         |                                   |
+| m                       | stejně jako ^ $ ale na řádek      |
+| d                       | verbose                           |
