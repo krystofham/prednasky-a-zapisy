@@ -38,4 +38,11 @@
 ```
 ## addTextTrack
 Titulky
-## **`fastSeek`**
+## Další properties
+- `currentTime`: for getting the current playback time of an audio
+- `loop`: for making the audio play continuously by automatically restarting when it reaches the end
+- `muted`: for silencing the audio output of a media element regardless of volume setting
+- playbackRate: rychlost přehrávání
+- 
+# Codecs
+codecs=
