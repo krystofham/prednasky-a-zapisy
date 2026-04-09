@@ -5,6 +5,19 @@ Přednášky, které se mají
 - vytvořit
 - atd
 https://www.harvardonline.harvard.edu/course?type=individual&topic=technology-and-innovation
+
+Další https://www.classcentral.com/
+
+https://fastapi.tiangolo.com/python-types/
+https://www.kaggle.com/learn
+https://www.classcentral.com/course/codesignal-owasp-top-10-common-attack-vectors-in-python-1-5-527035
+https://www.classcentral.com/course/codesignal-fastapi-essentials-for-python-developers-361287
+https://www.freecodecamp.org/learn/data-analysis-with-python/
+https://www.netacad.com/courses/operating-systems-basics?courseLang=en-US
+https://huggingface.co/learn/agents-course/unit0/introduction
+https://www.classcentral.com/course/seo-training-66293
+https://www.hackerrank.com/skills-verification
+https://cs50.harvard.edu/ai/
 # Udělané, nepochopené/nedodělané
 
 1) Fressnelovy integrály

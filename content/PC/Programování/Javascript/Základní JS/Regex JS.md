@@ -33,11 +33,15 @@ console.log(newText);  // "I love JavaScript! I love programming!"
 const regex = /freeCodeCamp/i;
 ```
 
-| Flag                    | meaning                           |
-| ----------------------- | --------------------------------- |
-| i                       | case insensitive                  |
-| g                       | více nálezů                       |
-| ^ (začátek)             | pouze explicitní shoda na začátku |
-| $ (konec před závorkou) | pouze explicitní shoda na konci   |
-| m                       | stejně jako ^ $ ale na řádek      |
-| d                       | verbose                           |
+| Flag                    | meaning                                          |
+| ----------------------- | ------------------------------------------------ |
+| i                       | case insensitive                                 |
+| g                       | více nálezů                                      |
+| ^ (začátek)             | pouze explicitní shoda na začátku                |
+| $ (konec před závorkou) | pouze explicitní shoda na konci                  |
+| m                       | stejně jako ^ $ ale na řádek                     |
+| d                       | verbose                                          |
+| (.+)                    | zachycení textu                                  |
+| .                       | jakýkoliv jeden znak (písmeno, číslo, mezera...) |
+| +                       | "jeden nebo více"                                |
+| ( )                     | skupina                                          |
