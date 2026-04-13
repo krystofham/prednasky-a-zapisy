@@ -34,7 +34,9 @@ Name: country, Length: 129971, dtype: bool
 
 
 reviews.loc[(reviews.country == 'Italy') | (reviews.points >= 90)]
-// A zároveň
+// A zároveň &
+
+
 
 reviews.loc[reviews.country.isin(['Italy', 'France'])]
 
