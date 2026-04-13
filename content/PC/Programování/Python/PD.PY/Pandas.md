@@ -9,3 +9,4 @@
 # Obsah (PDpy)
 
 [[Creating, Reading and Writing PDpy]]
+[[# Indexing, Selecting & Assigning PDpy]]
