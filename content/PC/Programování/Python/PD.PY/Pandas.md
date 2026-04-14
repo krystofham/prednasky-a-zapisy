@@ -10,3 +10,4 @@ Kaggle
 [[Creating, Reading and Writing PDpy]]
 [[Indexing, Selecting & Assigning PDpy]]
 [[Summary Functions and Maps PDpy]]
+[[Grouping and sorting PDpy]]
