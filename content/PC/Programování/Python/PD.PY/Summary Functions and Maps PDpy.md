@@ -15,6 +15,7 @@ reviews.points.median()
 reviews.taster_name.unique()
 // array([...], dtype=object)
 
+reviews.head(1) //jeden řádek
 
 ```
 
@@ -26,3 +27,21 @@ reviews.country + " - " + reviews.region_1
 
 reviews.country.value_counts()
 ```
+
+# Příklad
+```python
+# Calculate the mean of the price column first
+review_price_mean = reviews.price.mean()
+
+# Subtract the mean from every value in the price column
+centered_price = reviews.price - review_price_mean
+```
+# Další funkce
+`max()`
+- Nejvyšší číslo
+`idxmax()`
+- Index nejvyššího čísla
+`.sum()`
+- Vrací kolikrát
+`.str.contains()`
+- 
