@@ -8,7 +8,6 @@ https://www.youtube.com/playlist?list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8
 #programovani 
 #dsa
 # Main
-[[Co to je? DSA]]
 [[Stack data structures DSA]]
 [[Queue data structures DSA]]
 [[Prioritiy queue data structures DSA]]
@@ -52,6 +51,7 @@ https://www.youtube.com/playlist?list=PLZPZq0r_RZON1eaqfafTnEexRzuHbfZX8
 [[Simplex Algorithm DSA]]
 [[Memoize DSA]]
 [[Markov chain DSA]] (https://www.youtube.com/watch?v=KZeIEiBrT_w)
+[[Kruskal DSA]]
 # Neural networks (Nn)
 [[1. Co je to neuronová síť a jak se učí Nn]]
 [[2. backpropagation Nn]]

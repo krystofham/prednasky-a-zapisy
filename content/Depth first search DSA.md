@@ -1,0 +1,6 @@
+- Začneš v nějakém uzlu (vrcholu).
+- Jdeš co nejdál jednou cestou (dokud můžeš).
+- Když už není kam pokračovat, vrátíš se zpět a zkusíš jinou větev.
+---
+- Rekurze
+- Zásobník

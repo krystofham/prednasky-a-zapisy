@@ -1,0 +1,5 @@
+- Začneš v počátečním uzlu.
+- Nejprve projdeš všechny jeho sousedy.
+- Pak sousedy těchto sousedů atd.
+---
+- Fronta (queue)
