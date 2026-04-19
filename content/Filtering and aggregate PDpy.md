@@ -2,6 +2,8 @@
 ```python
 tall_pokemon = df[df["Height"]>2]
 tall_and_heavy = df[(df["Height"]>2) & (df["Weight"]>100)]
+
+point_strings = reviews["points"].astype(str)
 ```
 # Aggregate
 ```python

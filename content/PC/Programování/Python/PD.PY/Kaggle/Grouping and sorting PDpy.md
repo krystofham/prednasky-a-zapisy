@@ -35,3 +35,9 @@ countries_reviewed.sort_index()
 countries_reviewed.sort_values(by=['country', 'len'])
 # Nejdříve seřaď všechna data abecedně podle `country`. Pokud by se stalo, že by jedna země měla víc řádků (což v tomto případě po groupby nemá, ale obecně ano), tak tyto řádky v rámci té země seřadí podle `len`.
 ```
+# value counts
+- **jablko:** 3
+    
+- **banán:** 2
+    
+- **pomeranč:** 1

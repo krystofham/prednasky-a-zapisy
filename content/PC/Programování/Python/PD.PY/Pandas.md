@@ -13,8 +13,9 @@ Kaggle
 [[Selection PDpy]]
 [[Filtering and aggregate PDpy]]
 [[Data cleaning PDpy]]
-# Kaggle (dont use)
+# Kaggle
 [[Creating, Reading and Writing PDpy]]
 [[Indexing, Selecting & Assigning PDpy]]
 [[Summary Functions and Maps PDpy]]
 [[Grouping and sorting PDpy]]
+[[Renaming, combining PDpy]]
