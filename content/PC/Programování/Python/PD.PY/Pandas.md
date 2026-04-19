@@ -10,6 +10,9 @@ Kaggle
 [[Series PDpy]]
 [[DataFrame PDpy]]
 [[Import PDpy]]
+[[Selection PDpy]]
+[[Filtering and aggregate PDpy]]
+[[Data cleaning PDpy]]
 # Kaggle (dont use)
 [[Creating, Reading and Writing PDpy]]
 [[Indexing, Selecting & Assigning PDpy]]
