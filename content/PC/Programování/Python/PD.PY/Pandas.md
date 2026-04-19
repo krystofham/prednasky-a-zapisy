@@ -6,11 +6,10 @@ Kaggle
 #programovani 
 #pdpy
 # Obsah (PDpy)
-
 # Bro code
 [[Series PDpy]]
 [[DataFrame PDpy]]
-
+[[Import PDpy]]
 # Kaggle (dont use)
 [[Creating, Reading and Writing PDpy]]
 [[Indexing, Selecting & Assigning PDpy]]

@@ -4,5 +4,5 @@ data = {
 }
 df = pd.DataFrame(data, index=["Employer 1","Employer 2"])
 
-df.concat(e,new_row)
+df.concat(existing,new_row)
 ```
