@@ -7,6 +7,11 @@ Kaggle
 #pdpy
 # Obsah (PDpy)
 
+# Bro code
+[[Series PDpy]]
+[[DataFrame PDpy]]
+
+# Kaggle (dont use)
 [[Creating, Reading and Writing PDpy]]
 [[Indexing, Selecting & Assigning PDpy]]
 [[Summary Functions and Maps PDpy]]
