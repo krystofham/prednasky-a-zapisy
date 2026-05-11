@@ -1,19 +1,33 @@
-**1. Difúze** – promíchávání látek díky tepelnému pohybu částic (inkoust ve vodě).
+### Co zkoumá?
 
-**2. Brownův pohyb** – chaotický pohyb malých částic způsobený nárazy okolních molekul.
+Molekulová fyzika zkoumá vlastnosti látek pomocí chování jejich částic. Termodynamika řeší vztahy mezi teplem, teplotou, tlakem a objemem.
 
-**3. Tlak plynu** – síla nárazů molekul na stěny nádoby. S vyšší teplotou roste, molekuly narážejí rychleji a častěji.
+### Kinetická teorie látek – 3 poznatky
 
-**4. Síly mezi částicemi** – na velkou vzdálenost se přitahují, na malou odpuzují. V rovnovážné vzdálenosti se síly vyruší.
+1. Látky se skládají z atomů a molekul.
+2. Částice jsou v neustálém chaotickém tepelném pohybu.
+3. Částice na sebe silově působí.
 
-**5. Skupenství:**
+### Důkazy tepelného pohybu
 
-- **Pevné** – částice kmitají na místě, stálý tvar i objem
-- **Kapalné** – částice se pohybují, stálý objem, proměnný tvar
-- **Plynné** – částice volně létají, vyplní celou nádobu
+- **Difúze** – samovolné promíchávání látek (inkoust ve vodě).
+- **Brownův pohyb** – chaotický pohyb malých částic způsobený nárazy molekul.
+- **Tlak plynu** – nárazy molekul na stěny nádoby.
 
-**6. Plyn v nádobě** – menší objem → vyšší tlak; vyšší teplota → vyšší tlak. Tlak, objem a teplota jsou navzájem propojeny.
+### Vzájemné působení částic
 
-**7. Teplota** – míra rychlosti pohybu částic. Převod: **$$T (K) = t (°C) + 273.15$$**
+- Velká vzdálenost → **přitahují** se.
+- Malá vzdálenost → **odpuzují** se.
+- Rovnovážná vzdálenost → síly se vyruší.
 
-**8. Druhy teploměrů** – rtuťový, lihový, digitální, bimetalový, infračervený (bezkontaktní), termočlánek, pyrometr, teplotní pásek.
+### Termodynamická soustava
+
+- **Termodynamická soustava** – těleso nebo soustava, kterou zkoumáme.
+- **Fyzikální stav** – popis soustavy veličinami (p, V, T) v daném okamžiku.
+- **Fyzikální děj** – změna stavu v čase.
+
+Typy: **izolovaná** (nevyměňuje nic) / **uzavřená** (vyměňuje energii) / **otevřená** (vyměňuje energii i látku).
+
+### Rovnovážný stav
+
+Stav, kdy se veličiny soustavy (p, V, T) nemění v čase ani místě.
