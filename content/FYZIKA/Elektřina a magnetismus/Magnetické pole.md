@@ -17,7 +17,7 @@ $$R_m = \frac{l}{\mu S}$$
 $$ u = N\cdot \frac {\Delta \Phi}{\Delta t} (V, /,Wb, s)$$
 $$u = Blv (V, T, m, m\cdot s^{-1})$$
 # Vlastní indukčnost
-$$ L = \frac{N^2}{R_m} = N^2 \cdot \mu_r \mu_0 \cdot \frac Sl(H, \ohm)$$
+$$ L = \frac{N^2}{R_m} = N^2 \cdot \mu_r \mu_0 \cdot \frac Sl(H, \Omega;)$$
 $$L = \frac {N\Phi}I (H)$$
 ---
 ---
