@@ -35,6 +35,8 @@
 - šerosvit
 - pohyb, pocity
 - Rubens
+- Rembrant
+	- Noční hlídka
 # Sochy
 - svatých
 - dramatický pohyb
@@ -46,8 +48,6 @@
 - Ryba
 # LITERATURA
 ## Světová
-
-
 ## V Českých zemích
 ### Exulantská
 - emigrantská
