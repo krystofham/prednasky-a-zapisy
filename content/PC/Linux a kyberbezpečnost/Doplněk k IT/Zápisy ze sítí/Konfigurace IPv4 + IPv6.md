@@ -55,6 +55,7 @@ service password-encryption
 
 //banner
 banner motd - Neopravneny vstup zakazan -
+show running-config
 ```
 # Konfigurace Routerů (oba dva)
 ```
@@ -84,5 +85,5 @@ ip address 192.168.10.14 255.255.255.248
 ipv6 address 2001:db8:cafe:1::cafe/64
 no shutdown
 exit
-copy running-config startup-config
+show running-config
 ```
