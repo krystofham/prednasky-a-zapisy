@@ -41,9 +41,12 @@
 - rozevláté šaty
 - Matyáš Braun
 # Hudba
-- 
+- vznešená
+- Bach
+- Ryba
 # LITERATURA
 ## Světová
+
 
 ## V Českých zemích
 ### Exulantská
@@ -53,8 +56,26 @@
 ### Domácí
 #### Oficiální
 - jezuitská
+Antonín Koniáš
+- seznam zakázaných knih (vč. bible kralické)
+Bedřich Bridel
+- Co Bůh? Člověk?
+	- promlouvá k Bohu a zamýšlí se nad smyslem života
+Bohuslav Balbín
+- Jezuita
+- Misionář
+- Velký vlastnenec, kritizoval Vídeň
+- Rozprava na obranu jaky slovanského, zvláště českého
+	- zakázan
+	- obrana češtiny proti germanizaci
+Puristé = brusiči jazyka českého
+- novotvary, neujaly se
 #### Pololidová
 - přechod mezi dvěma
+##### Útvary
+- Kramářská neboli Jarmareční píseň
+	- noviny
+	- zpívali potulní zpěváci
 #### Ústní lidová slovesnost
 - lidi na venkově
 - jejich odraz zkušeností
