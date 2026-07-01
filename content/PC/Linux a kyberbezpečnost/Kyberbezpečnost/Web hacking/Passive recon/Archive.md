@@ -1,0 +1,2 @@
+waybackmachine
+- predchozi verze webu

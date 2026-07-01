@@ -1,0 +1,4 @@
+```
+whois h4cker.org
+Domain Name: H4CKER.ORGRegistry Domain ID: D402200000006011258-LRORRegistrar WHOIS Server: whois.google.comRegistrar URL: https://domains.google.comUpdated Date: 2018-07-03T03:48:35ZCreation Date: 2018-05-04T03:43:52ZRegistry Expiry Date: 2028-05-04T03:43:52ZRegistrar Registration Expiration Date:Registrar: Google LLCRegistrar IANA ID: 895Registrar Abuse Contact Email: registrar-abuse@google.comRegistrar Abuse Contact Phone: +1.8772376466Reseller:Domain Status: ok https://icann.org/epp#okRegistrant Organization: Contact Privacy Inc. Customer 1242605855Registrant State/Province: ONRegistrant Country: CAName Server: NS-CLOUD-C1.GOOGLEDOMAINS.COMName Server: NS-CLOUD-C2.GOOGLEDOMAINS.COMName Server: NS-CLOUD-C4.GOOGLEDOMAINS.COMName Server: NS-CLOUD-C3.GOOGLEDOMAINS.COMDNSSEC: signedDelegationURL of the ICANN Whois Inaccuracy Complaint Form https://www.icann.org/wicf/)
+```
