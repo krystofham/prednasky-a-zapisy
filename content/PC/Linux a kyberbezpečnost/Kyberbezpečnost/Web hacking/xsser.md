@@ -1,3 +1,4 @@
+```
 xsser [OPTIONS] [--all <url> |-u <url> |-i <file> |-d <dork> (options)|-l ] [-g <get> |-p <post  
 > |-c <crawl> (options)]  
 [Request(s)] [Checker(s)] [Vector(s)] [Anti-antiXSS/IDS] [Bypasser(s)] [Technique(s)] [Final In  
@@ -15,3 +16,4 @@ jection(s)] [Reporting] {Miscellaneous}
 --follow-redirects # sleduj přesměrování
 --threads=10 # rychlejší testování
 --save # ulož výsledky do souboru
+```

@@ -1,3 +1,24 @@
+```
+admin' OR '1'='1
+
+admin' --
+
+' or 1=1--
+
+```
+**WebGoat** - resource
+
+- **SELECT:** Used to obtain data from a database
+- **UPDATE:** Used to update data in a database
+- **DELETE:** Used to delete data from a database
+- **INSERT INTO:** Used to insert new data into a database
+- **CREATE DATABASE:** Used to create a new database
+- **ALTER DATABASE:** Used to modify a database
+- **CREATE TABLE:** Used to create a new table
+- **ALTER TABLE:** Used to modify a table
+- **DROP TABLE:** Used to delete a table
+- **CREATE INDEX:** Used to create an index or a search key element
+- **DROP INDEX:** Used to delete an index
 ### Jak funguje SQL databáze
 
 Aplikace ukládá data do databáze a ptá se jí dotazy v jazyce SQL:
