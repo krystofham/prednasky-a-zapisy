@@ -69,7 +69,7 @@ https://cs50.harvard.edu/ai/
 14) Historie acidobazických indikátorů
 15) Binary search https://ksp.mff.cuni.cz/encyklopedie/binarni-vyhledavani/
 	1) Vyhledávací stromy https://ksp.mff.cuni.cz/encyklopedie/vyhledavaci-stromy/
-		1) 21) Hešování https://ksp.mff.cuni.cz/encyklopedie/hesovani/
+		1) Hešování https://ksp.mff.cuni.cz/encyklopedie/hesovani/
 	2)   Treapy https://ksp.mff.cuni.cz/encyklopedie/treapy/
 	3) Třídění https://ksp.mff.cuni.cz/encyklopedie/trideni/
 16) Teorie chaosu

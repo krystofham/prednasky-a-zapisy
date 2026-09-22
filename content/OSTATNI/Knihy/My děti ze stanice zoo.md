@@ -24,6 +24,12 @@ Otec - Nezaměstnaný, agresivní, bil rodinu smetákem a bambusovou tyčí od f
 
 **Farář Jürgen Quandt:** Vedoucí evangelického centra Dům středu (příspěvek popisující uzavření klubu kvůli heroinu v roce 1976).
 
+| Místo                           | Postavy, které jsou s ním výrazně spojené                           |               Počet |
+| ------------------------------- | ------------------------------------------------------------------- | ------------------: |
+| **Dům středu (Haus der Mitte)** | Christiane, Kessi + jejich tehdejší parta - Piet, Milan,            |    **cca 2 hlavní** |
+| **Sound**                       | Christiane, Kessi, Detlef, Stella, Babsi, Axel, další lidé ze scény | **cca 6 výrazných** |
+| **Kurfürstenstraße**            | Christiane, Stella, Babsi, později další dvě dívky Tina             |           **cca 5** |
+
 --- 
 
 **První drogové zkušenosti**: V klubu začíná kouřit hašiš, pít alkohol a postupně zkoušet nejrůznější léky a psychedelika (efedrin, mandrax, valium a LSD/tripy).
