@@ -1,3 +1,4 @@
+FKS 2026
 > Všechna měření jsou zatížena chybami a všechny jsou špatně.
 ## Jak měřit
 - opakovat měření
