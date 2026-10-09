@@ -1,4 +1,5 @@
 KSP 2026
+
 ---
 
 # Procesor typu RISK
@@ -37,7 +38,7 @@ EX - execute instruvtin
 MEM - memory access, load a store
 WB - writeback
 
-To všechno je jeden takt - pipelin0e
+To všechno je jeden takt - pipeline
 Kazda operace je asynchronni a nezavisla.
 
 ```

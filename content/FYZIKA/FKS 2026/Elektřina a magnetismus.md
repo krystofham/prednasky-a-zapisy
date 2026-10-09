@@ -50,3 +50,4 @@ $$[j] = A\cdot m^{-1}$$
 Ampérův zákon se dá použít pouze na pár málo zákonů.
 ### Příklad
 Bude doplněn.
+Základní je https://www.perplexity.ai/search/cb215ba4-bd50-4005-a96d-1210304739bd?login-new=false&login-source=hardVisitorGate ale bude lepsi.

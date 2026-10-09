@@ -42,12 +42,27 @@ https://cs50.harvard.edu/ai/
 # Nápady
 
 ## Konkrétnější
+Taylorovy/Maclaurinovy řady
+Limity – těžší
+Integrály – těžší techniky
+Nevlastní integrály
+Parametrické integrály
+Derivace a extrémy – více proměnných
+Implicitní derivování
+Diferenciální rovnice
+Komplexní čísla
+Funkční rovnice
+Kombinatorika + binomická věta
+Číselná teorie
+Vektory a analytická geometrie
+Matematická indukce
+Pravděpodobnost
+Fourierovy řady
 1) Edingtonův limit
 2) Goniometrické identity Eulerův vzorec a Komplexní čísla
 3) Parametrické funkce, polární souřadnice, vektorové funkce
 4) parciální tlaky
 5) **Matice**
-
 6) Plasma a skupenství
 7) **Zrcadla**
 8) Posloupnosti a řady
@@ -59,40 +74,36 @@ https://cs50.harvard.edu/ai/
 	2) Per partes https://www.youtube.com/watch?v=bLhxQIdbWW8 
 	3) Substituce https://www.youtube.com/watch?v=sdYdnpYn-1o
 	4) Něco od každého https://www.youtube.com/watch?v=WUvTyaaNkzM&list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr
-11) Dvojité integrály
-	1) https://www.youtube.com/watch?v=BJ_0FURo9RE&t=350s 
-	2) https://www.youtube.com/watch?v=gifQWtTWqEY
-	3) https://www.youtube.com/watch?v=UubU3U2C8WM
-12) Rozdíl mezi integrály
+11) Rozdíl mezi integrály
 	1) https://www.youtube.com/watch?v=kgg5Rspf1Js&pp=ygUbcGxvY2hhIG1lemkgZHbEm21hIGZ1bmtjZW1p
-13) Fourierova transformace
-14) Historie acidobazických indikátorů
-15) Binary search https://ksp.mff.cuni.cz/encyklopedie/binarni-vyhledavani/
+12) Fourierova transformace
+13) Historie acidobazických indikátorů
+14) Binary search https://ksp.mff.cuni.cz/encyklopedie/binarni-vyhledavani/
 	1) Vyhledávací stromy https://ksp.mff.cuni.cz/encyklopedie/vyhledavaci-stromy/
 		1) Hešování https://ksp.mff.cuni.cz/encyklopedie/hesovani/
 	2)   Treapy https://ksp.mff.cuni.cz/encyklopedie/treapy/
 	3) Třídění https://ksp.mff.cuni.cz/encyklopedie/trideni/
-16) Teorie chaosu
-17) Lorentzovy transformace
-18) Vlnová rovnice
-19) Vektorový součin a vektory (+ skaláry)
-20) Antihmota
-21) Hadronový urychlovač částic
+15) Teorie chaosu
+16) Lorentzovy transformace
+17) Vlnová rovnice
+18) Vektorový součin a vektory (+ skaláry)
+19) Antihmota
+20) Hadronový urychlovač částic
 	1) https://home.cern/
-22) Radioaktivní rozpad
-23) Geometrická vs. Vlnová optika
-24) Informační teorie (Entropie): Claude Shannon
-25) Neutronová hvězda
-26) Grafové algoritmy (A_, Dijkstra):_*
-27) Fraktální geometrie
-28) Hledání v textu https://ksp.mff.cuni.cz/encyklopedie/hledani-v-textu/ 
-29) Eulerovy tahy https://ksp.mff.cuni.cz/encyklopedie/eulerovske-tahy/
-30) sqrt(2) je irracional https://www.youtube.com/watch?v=LmpAntNjPj0
-31) Hilberův prostor
+21) Radioaktivní rozpad
+22) Geometrická vs. Vlnová optika
+23) Informační teorie (Entropie): Claude Shannon
+24) Neutronová hvězda
+25) Grafové algoritmy (A_, Dijkstra):_*
+26) Fraktální geometrie
+27) Hledání v textu https://ksp.mff.cuni.cz/encyklopedie/hledani-v-textu/ 
+28) Eulerovy tahy https://ksp.mff.cuni.cz/encyklopedie/eulerovske-tahy/
+29) sqrt(2) je irracional https://www.youtube.com/watch?v=LmpAntNjPj0
+30) Hilberův prostor
 	1) https://www.youtube.com/watch?v=FFPXm-tuOt8
-32) Proč pí?
+31) Proč pí?
 	1) https://www.youtube.com/watch?v=6dTyOl1fmDo&list=PLZHQObOWTQDMVQcT3414TcPMeEYf_VtPM
-33) Bronsted/Lawry theory
+32) Bronsted/Lawry theory
 
 ## Abstrakt
 1) Astrofyzika
